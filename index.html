@@ -31,12 +31,21 @@
                 fvdfvd
             </div>
             <div class="screen-btn-container">
-                fdvd
+                <button class="scr-btn" onclick="activescrbtn(event, 'btn1')" id="btn1">HEX&nbsp; &nbsp; &nbsp; 0</button>
+                <button class="scr-btn" onclick="activescrbtn(event, 'btn2')" id="btn2">DEC&nbsp; &nbsp; &nbsp; 0</button>
+                <button class="scr-btn" onclick="activescrbtn(event, 'btn3')" id="btn3">OCT&nbsp; &nbsp; &nbsp; 0</button>
+                <button class="scr-btn" onclick="activescrbtn(event, 'btn4')" id="btn4">BIN&nbsp; &nbsp; &nbsp; 0</button>
             </div>
             <div class="top-btn-row">
-                dvd
+                <button class="tablinks" onclick="changekbdmode(event, 'keypad')"><i
+                        class="far fa-keyboard"></i></button>
+                <button class="tablinks" onclick="changekbdmode(event, 'keyball')"><i
+                        class="fas fa-braille"></i></button>
+                <div class="tabmode"><button>DWORD</button></div>
+                <button class="tablinks" onclick="">MS</i></button>
+                <button class="tablinks" onclick="" disabled>M<i class="fas fa-caret-down"></i></button>
             </div>
-            <div class="main-btn-container">
+            <div class="main-btn-container" id="keypad">
                 <div class="col-1">
                     <div class="btn dark-btn">Lsh</div>
                     <div class="btn dark-btn">&#8593;</div>
@@ -46,49 +55,110 @@
                     <div class="btn dark-btn">(</div>
                 </div>
                 <div class="col-2">
-                        <div class="btn dark-btn">Rsh</div>
-                        <div class="btn dark-btn">Mod</div>
-                        <div class="btn white-btn">B</div>
-                        <div class="btn white-btn">D</div>
-                        <div class="btn white-btn">F</div>
-                        <div class="btn dark-btn">)</div>
+                    <div class="btn dark-btn">Rsh</div>
+                    <div class="btn dark-btn">Mod</div>
+                    <div class="btn white-btn">B</div>
+                    <div class="btn white-btn">D</div>
+                    <div class="btn white-btn">F</div>
+                    <div class="btn dark-btn">)</div>
                 </div>
                 <div class="col-3">
-                        <div class="btn dark-btn">Or</div>
-                        <div class="btn dark-btn">CE</div>
-                        <div class="btn white-btn">7</div>
-                        <div class="btn white-btn">4</div>
-                        <div class="btn white-btn">1</div>
-                        <div class="btn dark-btn">&plusmn;</div>
+                    <div class="btn dark-btn">Or</div>
+                    <div class="btn dark-btn">CE</div>
+                    <div class="btn white-btn">7</div>
+                    <div class="btn white-btn">4</div>
+                    <div class="btn white-btn">1</div>
+                    <div class="btn dark-btn">&plusmn;</div>
                 </div>
                 <div class="col-4">
-                        <div class="btn dark-btn">Xor</div>
-                        <div class="btn dark-btn">C</div>
-                        <div class="btn white-btn">8</div>
-                        <div class="btn white-btn">5</div>
-                        <div class="btn white-btn">2</div>
-                        <div class="btn white-btn">0</div>
+                    <div class="btn dark-btn">Xor</div>
+                    <div class="btn dark-btn">C</div>
+                    <div class="btn white-btn">8</div>
+                    <div class="btn white-btn">5</div>
+                    <div class="btn white-btn">2</div>
+                    <div class="btn white-btn">0</div>
                 </div>
                 <div class="col-5">
-                        <div class="btn dark-btn">Not</div>
-                        <div class="btn dark-btn">&otimes;</div>
-                        <div class="btn white-btn">9</div>
-                        <div class="btn white-btn">6</div>
-                        <div class="btn white-btn">3</div>
-                        <div class="btn dark-btn disabled">.</div>
+                    <div class="btn dark-btn">Not</div>
+                    <div class="btn dark-btn"><i class="fas fa-backspace"></i></div>
+                    <div class="btn white-btn">9</div>
+                    <div class="btn white-btn">6</div>
+                    <div class="btn white-btn">3</div>
+                    <div class="btn dark-btn disabled">.</div>
                 </div>
                 <div class="col-6">
-                        <div class="btn dark-btn">And</div>
-                        <div class="btn opr-btn">&divide;</div>
-                        <div class="btn opr-btn">&times;</div>
-                        <div class="btn opr-btn">-</div>
-                        <div class="btn opr-btn">&plus;</div>
-                        <div class="btn opr-btn">=</div>
+                    <div class="btn dark-btn">And</div>
+                    <div class="btn opr-btn">&divide;</div>
+                    <div class="btn opr-btn">&times;</div>
+                    <div class="btn opr-btn">-</div>
+                    <div class="btn opr-btn">&plus;</div>
+                    <div class="btn opr-btn">=</div>
+                </div>
+            </div>
+
+            <div class="main-btn-container" id="keyball">
+                <div class="col-1">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <div class="col-2">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <div class="col-3">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </div>
+                <div class="col-4">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
                 </div>
             </div>
         </div>
 
     </div>
 </body>
+
+<script>
+    document.getElementsByClassName("tablinks")[0].className += " active";
+    document.getElementById("keypad").style.display = "flex"
+    document.getElementById("btn1").className += " active"
+
+    function changekbdmode(evt, keyMode) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("main-btn-container");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(keyMode).style.display = "flex";
+        evt.currentTarget.className += " active";
+    }
+
+    function activescrbtn(evt, activeBtn) {
+        var i, btns;
+        
+        btns = document.getElementsByClassName("scr-btn");
+        for (i = 0; i < btns.length; i++) {
+            btns[i].className = btns[i].className.replace(" active", "");
+        }
+
+        evt.currentTarget.className += " active";
+    }
+</script>
 
 </html>
