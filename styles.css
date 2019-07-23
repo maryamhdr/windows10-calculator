@@ -1,5 +1,15 @@
+:root {
+    --main-bg-color: rgba(236,236,236, 0.9);
+    --border-color: #515c6b;
+    --dark-hover-color: #7d7d7d;
+    --normal-hover-color: #d8d8d8;
+    --light-hover-color: #dcdcdc;
+    
+}
+
 html, body {
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 * {
@@ -9,4 +19,56 @@ html, body {
 .cal-icon {
     font-size: 18px;
     color: gray
+}
+
+.calculator {
+    width: 325px;
+    height: 500px;
+    background-color: var(--main-bg-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 2px 2px 15px #bfbfbf, -2px 0 20px #bfbfbf;
+}
+
+.title-bar {
+    width: 100%;
+    color: #000;
+    font-size: 12px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.title {
+    float: left;
+    padding: 6px 9px;
+}
+
+.title-bar-btn-container {
+    float: right;
+    font-size: 14px;
+    font-weight: lighter;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0
+}
+
+.title-bar-btn-container span {
+    display: inline-block;
+    padding: 8px 16px;
+    text-align: center;
+    vertical-align: center
+}
+
+.title-bar-btn-container span:hover {
+    background-color: var(--normal-hover-color);
+    cursor: pointer;
+}
+
+.title-bar-btn-container .title-bar-times:hover {
+    background-color: red;
+    color: #fff;
+    margin: 0
 }
