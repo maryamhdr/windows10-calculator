@@ -12,117 +12,154 @@
 </head>
 
 <body>
-    <spna class="cal-icon"><i class="fas fa-calculator"></i></spna>
+    <!-- <spna class="cal-icon"><i class="fas fa-calculator"></i></spna> -->
     <div class="calculator">
+
         <div class="title-bar">
             <div class="title">Calculator</div>
-            <div class="title-bar-btn-container">
-                <span> &#x1f5d5;</span>
-                <span>&#x1f5d6;</span>
-                <span class="title-bar-times">&#215;</span>
-            </div>
+            <span class="title-bar-btn1 times"><i class="fas fa-times"></i>
+                <div class="tooltip1">Close</div>
+            </span>
+            <span class="title-bar-btn2"><i class="far fa-window-maximize"></i>
+                <div class="tooltip2">Maximize</div>
+            </span>
+            <span class="title-bar-btn3"><i class="fas fa-window-minimize"></i>
+                <div class="tooltip3">Minimize</div>
+            </span>
         </div>
-        <div class="side-bar">
-            <span class="nav-icon"><i class="fas fa-bars"></i></span>
-            <span class="state-title">Programmer</span>
-        </div>
-        <div class="var-body">
-            <div class="screen">
-                fvdfvd
-            </div>
-            <div class="screen-btn-container">
-                <button class="scr-btn" onclick="activescrbtn(event, 'btn1')" id="btn1">HEX&nbsp; &nbsp; &nbsp; 0</button>
-                <button class="scr-btn" onclick="activescrbtn(event, 'btn2')" id="btn2">DEC&nbsp; &nbsp; &nbsp; 0</button>
-                <button class="scr-btn" onclick="activescrbtn(event, 'btn3')" id="btn3">OCT&nbsp; &nbsp; &nbsp; 0</button>
-                <button class="scr-btn" onclick="activescrbtn(event, 'btn4')" id="btn4">BIN&nbsp; &nbsp; &nbsp; 0</button>
-            </div>
-            <div class="top-btn-row">
-                <button class="tablinks" onclick="changekbdmode(event, 'keypad')"><i
-                        class="far fa-keyboard"></i></button>
-                <button class="tablinks" onclick="changekbdmode(event, 'keyball')"><i
-                        class="fas fa-braille"></i></button>
-                <div class="tabmode"><button>DWORD</button></div>
-                <button class="tablinks" onclick="">MS</i></button>
-                <button class="tablinks" onclick="" disabled>M<i class="fas fa-caret-down"></i></button>
-            </div>
-            <div class="main-btn-container" id="keypad">
-                <div class="col-1">
-                    <div class="btn dark-btn">Lsh</div>
-                    <div class="btn dark-btn">&#8593;</div>
-                    <div class="btn white-btn">A</div>
-                    <div class="btn white-btn">C</div>
-                    <div class="btn white-btn">E</div>
-                    <div class="btn dark-btn">(</div>
+
+        <div class="main-container">
+
+            <div class="left">
+
+                <div class="side-bar">
+                    <span class="nav-icon" onclick="openNav()"><i class="fas fa-bars"></i>
+                        <div class="tooltip-nav">Open Navigation</div>
+                    </span>
+                    <span class="state-title">Programmer</span>
                 </div>
-                <div class="col-2">
-                    <div class="btn dark-btn">Rsh</div>
-                    <div class="btn dark-btn">Mod</div>
-                    <div class="btn white-btn">B</div>
-                    <div class="btn white-btn">D</div>
-                    <div class="btn white-btn">F</div>
-                    <div class="btn dark-btn">)</div>
-                </div>
-                <div class="col-3">
-                    <div class="btn dark-btn">Or</div>
-                    <div class="btn dark-btn">CE</div>
-                    <div class="btn white-btn">7</div>
-                    <div class="btn white-btn">4</div>
-                    <div class="btn white-btn">1</div>
-                    <div class="btn dark-btn">&plusmn;</div>
-                </div>
-                <div class="col-4">
-                    <div class="btn dark-btn">Xor</div>
-                    <div class="btn dark-btn">C</div>
-                    <div class="btn white-btn">8</div>
-                    <div class="btn white-btn">5</div>
-                    <div class="btn white-btn">2</div>
-                    <div class="btn white-btn">0</div>
-                </div>
-                <div class="col-5">
-                    <div class="btn dark-btn">Not</div>
-                    <div class="btn dark-btn"><i class="fas fa-backspace"></i></div>
-                    <div class="btn white-btn">9</div>
-                    <div class="btn white-btn">6</div>
-                    <div class="btn white-btn">3</div>
-                    <div class="btn dark-btn disabled">.</div>
-                </div>
-                <div class="col-6">
-                    <div class="btn dark-btn">And</div>
-                    <div class="btn opr-btn">&divide;</div>
-                    <div class="btn opr-btn">&times;</div>
-                    <div class="btn opr-btn">-</div>
-                    <div class="btn opr-btn">&plus;</div>
-                    <div class="btn opr-btn">=</div>
+                <div class="var-body">
+                    <div class="screen">
+                        <div class="screen-holder">5 + 4</div>
+                        <div class="screen-result">9</div>
+                    </div>
+                    <div class="screen-btn-container">
+                        <button class="scr-btn" onclick="activescrbtn(event, 'btn1')" id="btn1">HEX&nbsp; &nbsp; &nbsp;
+                            0</button>
+                        <button class="scr-btn" onclick="activescrbtn(event, 'btn2')" id="btn2">DEC&nbsp; &nbsp; &nbsp;
+                            0</button>
+                        <button class="scr-btn" onclick="activescrbtn(event, 'btn3')" id="btn3">OCT&nbsp; &nbsp; &nbsp;
+                            0</button>
+                        <button class="scr-btn" onclick="activescrbtn(event, 'btn4')" id="btn4">BIN&nbsp; &nbsp; &nbsp;
+                            0</button>
+                    </div>
+                    <div class="top-btn-row">
+                        <button class="tablinks btn1" onclick="changekbdmode(event, 'keypad')"><i
+                                class="far fa-keyboard"></i>
+                            <div class="tooltip4">Full keypad</div>
+                        </button>
+                        <button class="tablinks btn2" onclick="changekbdmode(event, 'keyball')"><i
+                                class="fas fa-braille"></i>
+                            <div class="tooltip5">Bit toggling keypad</div>
+                        </button>
+                        <div class="tabmode"><button>DWORD</button></div>
+                        <button class="tablinks btn3" onclick="">MS</i>
+                            <div class="tooltip6">Memory store (Ctrl+M)</div>
+                        </button>
+                        <button class="tablinks btn4" onclick="" disabled>M<i class="fas fa-caret-down"></i>
+                            <div class="tooltip7">Memory</div>
+                        </button>
+                    </div>
+                    <div class="main-btn-container" id="keypad">
+                        <div class="col-1">
+                            <div class="btn dark-btn">Lsh</div>
+                            <div class="btn dark-btn">&#8593;</div>
+                            <div class="btn white-btn">A</div>
+                            <div class="btn white-btn">C</div>
+                            <div class="btn white-btn">E</div>
+                            <div class="btn dark-btn">(</div>
+                        </div>
+                        <div class="col-2">
+                            <div class="btn dark-btn">Rsh</div>
+                            <div class="btn dark-btn">Mod</div>
+                            <div class="btn white-btn">B</div>
+                            <div class="btn white-btn">D</div>
+                            <div class="btn white-btn">F</div>
+                            <div class="btn dark-btn">)</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="btn dark-btn">Or</div>
+                            <div class="btn dark-btn">CE</div>
+                            <div class="btn white-btn">7</div>
+                            <div class="btn white-btn">4</div>
+                            <div class="btn white-btn">1</div>
+                            <div class="btn dark-btn">&plusmn;</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="btn dark-btn">Xor</div>
+                            <div class="btn dark-btn">C</div>
+                            <div class="btn white-btn">8</div>
+                            <div class="btn white-btn">5</div>
+                            <div class="btn white-btn">2</div>
+                            <div class="btn white-btn">0</div>
+                        </div>
+                        <div class="col-5">
+                            <div class="btn dark-btn">Not</div>
+                            <div class="btn dark-btn"><i class="fas fa-backspace"></i></div>
+                            <div class="btn white-btn">9</div>
+                            <div class="btn white-btn">6</div>
+                            <div class="btn white-btn">3</div>
+                            <div class="btn dark-btn disabled">.</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="btn dark-btn">And</div>
+                            <div class="btn opr-btn">&divide;</div>
+                            <div class="btn opr-btn">&times;</div>
+                            <div class="btn opr-btn">-</div>
+                            <div class="btn opr-btn">&plus;</div>
+                            <div class="btn opr-btn">=</div>
+                        </div>
+                    </div>
+
+                    <div class="main-btn-container" id="keyball">
+                        <div class="col-1">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                        </div>
+                        <div class="col-2">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                        </div>
+                        <div class="col-3">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                        </div>
+                        <div class="col-4">
+                            <div>1</div>
+                            <div>2</div>
+                            <div>3</div>
+                            <div>4</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="main-btn-container" id="keyball">
-                <div class="col-1">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
+            <div class="right">
+                <div class="right-title">
+                    Memory
                 </div>
-                <div class="col-2">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                </div>
-                <div class="col-3">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                </div>
-                <div class="col-4">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
+                <div style="margin-top: 25px">
+                    There's nothing saved in memory
                 </div>
             </div>
         </div>
+
 
     </div>
 </body>
@@ -151,13 +188,23 @@
 
     function activescrbtn(evt, activeBtn) {
         var i, btns;
-        
+
         btns = document.getElementsByClassName("scr-btn");
         for (i = 0; i < btns.length; i++) {
             btns[i].className = btns[i].className.replace(" active", "");
         }
 
         evt.currentTarget.className += " active";
+    }
+
+    function openNav() {
+        document.getElementById("myNav").style.width = "265px";
+        // document.getElementById("sidenav").children.style.display = "block"
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0";
+        // document.getElementById("sidenav").children.style.display = "none"
     }
 </script>
 

@@ -26,7 +26,6 @@ body {
 .calculator {
     width: 325px;
     height: 500px;
-    resize: horizontal;
     background-color: var(--main-bg-color);
     border: 1px solid var(--border-color);
     box-shadow: 2px 2px 15px #bfbfbf, -2px 0 20px #bfbfbf;
@@ -38,42 +37,81 @@ body {
     color: #000;
     font-size: 12px;
     font-weight: 100;
-    display: flex;
-    align-items: center;
-    position: relative;
-
+    background-color: var(--main-bg-color)
 }
 
 .title {
     padding: 6px 9px;
+    float: left;
 }
 
-.title-bar-btn-container {
-    font-size: 14px;
-    font-weight: lighter;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0
-}
-
-.title-bar-btn-container span {
+[class*="title-bar-btn"] {
     display: inline-block;
-    height: 32px;
-    padding: 8px 16px;
-    text-align: center;
-    vertical-align: center
+    padding: 6px 15px;
+    float: right;
+    position: relative;
 }
 
-.title-bar-btn-container span:hover {
-    background-color: var(--normal-hover-color);
-    cursor: pointer;
+[class*="tooltip"] {
+    background-color: var(--btn-bg-color);
+    color: #000;
+    border: 1px solid #515c6b;
+    padding: 2px 5px;
+    position: absolute;
+    font-size: 10px;
+    display: none;
+    top: 30px
 }
 
-.title-bar-btn-container .title-bar-times:hover {
+.title-bar .times:hover {
     background-color: red;
-    color: #fff;
-    margin: 0
+    color: #fff
+}
+
+.title-bar-btn1:hover .tooltip1 {
+    display: inline-block;
+}
+
+.title-bar-btn2:hover {
+    background-color: var(--normal-hover-color)
+}
+
+.title-bar-btn2:hover .tooltip2 {
+    display: inline-block;
+}
+
+.title-bar-btn3:hover {
+    background-color: var(--normal-hover-color)
+}
+
+.title-bar-btn3:hover .tooltip3 {
+    display: inline-block;
+}
+
+.main-container {
+    width: 325px;
+    height: 85%;
+    ;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--main-bg-color)
+}
+
+.left {
+    width: 325px;
+}
+
+.right {
+    display: none;
+    padding: 10px 12px;
+    font-size: 14px;
+    font-weight: bold
+}
+
+.right-title {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 4px solid var(--dark-hover-color)
 }
 
 .side-bar {
@@ -81,7 +119,8 @@ body {
     height: 43px;
     display: flex;
     align-items: center;
-    justify-content: flex-start
+    justify-content: flex-start;
+    background-color: var(--main-bg-color)
 }
 
 .nav-icon {
@@ -93,10 +132,58 @@ body {
     background-color: var(--normal-hover-color)
 }
 
+.nav-icon:hover .tooltip-nav {
+    display: block
+}
+
 .state-title {
     padding: 10px 12px;
     font-size: 18px
 }
+
+/* .side-nav {
+    width: 0;
+    height: 100%;;
+    background-color: rgba(255,255,255, 0.99);
+    font-size: 14px;
+    padding-bottom: 5px;
+    position: absolute;
+    z-index: 1;
+    left: 9px;
+    top: 42px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column
+}
+
+.side-nav a {
+    display: block
+}
+
+.side-header {
+    display: block
+}
+
+.side-nav .side-header i {
+    padding: 10px 12px;
+}
+
+.side-header i:hover {
+    background-color: var(--normal-hover-color)
+}
+
+.side-footer {
+    display: block;
+    padding: 10px 12px;
+}
+
+.side-footer i {
+    margin-right: 12px
+}
+
+.side-footer:hover {
+    background-color: var(--normal-hover-color)
+} */
 
 .var-body {
     width: 100%;
@@ -107,7 +194,23 @@ body {
 .screen {
     width: 100%;
     height: 14%;
-    background-color: brown
+    background-color: var(--main-bg-color)
+}
+
+.screen-holder {
+    text-align: right;
+    color: var(--dark-hover-color);
+    font-size: 14px;
+    padding: 0 12px;
+    font-weight: lighter
+}
+
+.screen-result {
+    text-align: right;
+    color: #000;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 5px 12px
 }
 
 .screen-btn-container {
@@ -159,12 +262,13 @@ body {
     outline: none;
     margin: 0;
     padding: 0;
-    text-align: center
+    text-align: center;
+    position: relative;
 }
 
 .top-btn-row .tablinks:hover {
     background-color: var(--light-hover-color);
-    border: 1px solid rgba(125,125,125,0.3)
+    border: 1px solid rgba(125, 125, 125, 0.3)
 }
 
 .top-btn-row button.active {
@@ -190,7 +294,23 @@ body {
 
 .top-btn-row .tabmode button:hover {
     background-color: var(--light-hover-color);
-    border: 1px solid rgba(125,125,125,0.3)
+    border: 1px solid rgba(125, 125, 125, 0.3)
+}
+
+.btn1:hover .tooltip4 {
+    display: block
+}
+
+.btn2:hover .tooltip5 {
+    display: block
+}
+
+.btn3:hover .tooltip6 {
+    display: block
+}
+
+.btn4:hover .tooltip7 {
+    display: block
 }
 
 .main-btn-container {
@@ -215,7 +335,7 @@ body {
     height: 15.6%;
     box-sizing: border-box;
     background-color: var(--btn-bg-color);
-    margin:2px 1px;
+    margin: 2px 1px;
     font-size: 12px
 }
 
@@ -231,7 +351,7 @@ body {
 
 [class*="col-"] .white-btn:hover {
     background-color: var(--light-hover-color);
-    border: 2px solid rgba(125,125,125,0.3)
+    border: 2px solid rgba(125, 125, 125, 0.3)
 }
 
 [class*="col-"] .dark-btn {
@@ -240,7 +360,7 @@ body {
 
 [class*="col-"] .dark-btn:hover {
     background-color: var(--light-hover-color);
-    border: 2px solid rgba(125,125,125,0.3)
+    border: 2px solid rgba(125, 125, 125, 0.3)
 }
 
 [class*="col-"] .opr-btn {
@@ -262,3 +382,34 @@ body {
     background-color: var(--btn-bg-color);
     border: 2px solid var(--main-bg-color);
 }
+
+
+@media screen and (min-width: 326px) {
+    .calculator {
+        width: 100%;
+    }
+
+    .main-container {
+        width: 100%
+    }
+
+    .left {
+        width: 100%
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .right {
+        display: block;
+        width: 325px
+    }
+}
+
+
+/* @media screen and (min-height: 501px){
+    
+
+    .var-body {
+        height: 100%;
+    }
+} */
