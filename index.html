@@ -12,12 +12,14 @@
 </head>
 
 <body>
-    <!-- <spna class="cal-icon"><i class="fas fa-calculator"></i></spna> -->
-    <div class="calculator">
+    <spna class="cal-icon" onclick="openCal()" id="openIcon"><i class="fas fa-calculator"></i>
+        <div class="tooltipcal">Open calculator</div>
+    </spna>
+    <div class="calculator" id="myCal">
 
         <div class="title-bar">
             <div class="title">Calculator</div>
-            <span class="title-bar-btn1 times"><i class="fas fa-times"></i>
+            <span class="title-bar-btn1 times" onclick="closeCal()"><i class="fas fa-times"></i>
                 <div class="tooltip1">Close</div>
             </span>
             <span class="title-bar-btn2"><i class="far fa-window-maximize"></i>
@@ -29,6 +31,94 @@
         </div>
 
         <div class="main-container">
+
+            <div id="myNav" class="nav">
+
+                <div class="nav-head">
+                    <span class="nav-inner-icon" onclick="closeNav()"><i class="fas fa-bars"></i>
+                        <div class="inner-tooltip-nav">close Navigation</div>
+                    </span>
+                </div>
+
+                <div class="nav-body">
+                    <h3>Calculator</h3>
+                    <div class="nav-item">
+                        <i class="fas fa-calculator fa-fw"></i>
+                        Standard
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-flask fa-fw"></i>
+                        Scientific
+                    </div>
+                    <div class="nav-item active-item">
+                        <i class="fas fa-code fa-fw"></i>
+                        Programmer
+                    </div>
+                    <div class="nav-item">
+                        <i class="far fa-calendar-alt fa-fw"></i>
+                        Date Calculation
+                    </div>
+
+                    <h3>Converter</h3>
+                    <div class="nav-item">
+                        <i class="fas fa-coins fa-fw"></i>
+                        Currency
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-cube fa-fw"></i>
+                        Volume
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-ruler fa-fw"></i>
+                        Length
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-weight-hanging fa-fw"></i>
+                        Weight and Mass
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-thermometer-quarter fa-fw"></i>
+                        Temperature
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-fire fa-fw"></i>
+                        Energy
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-map fa-fw"></i>
+                        Area
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-running fa-fw"></i>
+                        Speed
+                    </div>
+                    <div class="nav-item">
+                        <i class="far fa-clock fa-fw"></i>
+                        Time
+                    </div>
+                    <div class="nav-item">
+                        <i class="fab fa-superpowers fa-fw"></i>
+                        Power
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-database fa-fw"></i>
+                        Data
+                    </div>
+                    <div class="nav-item">
+                        <i class="fab fa-algolia fa-fw"></i>
+                        Pressure
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-angle-right fa-fw"></i>
+                        Angle
+                    </div>
+                </div>
+
+                <div class="nav-foot">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                </div>
+            </div>
 
             <div class="left">
 
@@ -123,28 +213,28 @@
 
                     <div class="main-btn-container" id="keyball">
                         <div class="col-1">
-                            <div>1</div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>4</div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
                         <div class="col-2">
-                            <div>1</div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>4</div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
                         <div class="col-3">
-                            <div>1</div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>4</div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
                         <div class="col-4">
-                            <div>1</div>
-                            <div>2</div>
-                            <div>3</div>
-                            <div>4</div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
                     </div>
                 </div>
@@ -205,6 +295,16 @@
     function closeNav() {
         document.getElementById("myNav").style.width = "0";
         // document.getElementById("sidenav").children.style.display = "none"
+    }
+
+    function openCal() {
+        document.getElementById("myCal").style.display = "block"
+        document.getElementById("openIcon").style.display = "none"
+    }
+
+    function closeCal() {
+        document.getElementById("myCal").style.display = "none"
+        document.getElementById("openIcon").style.display = "inline-block"
     }
 </script>
 
