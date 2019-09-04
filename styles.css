@@ -4,8 +4,7 @@
     --dark-hover-color: #7d7d7d;
     --normal-hover-color: #d8d8d8;
     --light-hover-color: #dcdcdc;
-    --btn-bg-color: #f2f2f2;
-
+    --btn-bg-color: #f2f2f2
 }
 
 html,
@@ -29,7 +28,7 @@ body {
 }
 
 .cal-icon:hover {
-    cursor: pointer;
+    cursor: pointer
 }
 
 .cal-icon:hover .tooltipcal {
@@ -43,7 +42,7 @@ body {
     display: none;
     background-color: var(--main-bg-color);
     border: 1px solid var(--border-color);
-    box-shadow: 2px 2px 15px #bfbfbf, -2px 0 20px #bfbfbf;
+    box-shadow: 2px 2px 15px #bfbfbf, -2px 0 20px #bfbfbf
 }
 
 .title-bar {
@@ -57,14 +56,14 @@ body {
 
 .title {
     padding: 6px 9px;
-    float: left;
+    float: left
 }
 
 [class*="title-bar-btn"] {
     display: inline-block;
     padding: 6px 15px;
     float: right;
-    position: relative;
+    position: relative
 }
 
 [class*="tooltip"] {
@@ -84,7 +83,7 @@ body {
 }
 
 .title-bar-btn1:hover .tooltip1 {
-    display: inline-block;
+    display: inline-block
 }
 
 .title-bar-btn2:hover {
@@ -92,7 +91,7 @@ body {
 }
 
 .title-bar-btn2:hover .tooltip2 {
-    display: inline-block;
+    display: inline-block
 }
 
 .title-bar-btn3:hover {
@@ -100,7 +99,7 @@ body {
 }
 
 .title-bar-btn3:hover .tooltip3 {
-    display: inline-block;
+    display: inline-block
 }
 
 .main-container {
@@ -109,11 +108,11 @@ body {
     display: flex;
     flex-direction: row;
     background-color: var(--main-bg-color);
-    position: relative;
+    position: relative
 }
 
 .left {
-    width: 325px;
+    width: 325px
 }
 
 .right {
@@ -191,7 +190,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center
 }
 
 .screen-btn-container button {
@@ -234,7 +233,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    position: relative;
+    position: relative
 }
 
 .top-btn-row .tablinks:hover {
@@ -351,7 +350,7 @@ body {
 
 [class*="col-"] .disabled:hover {
     background-color: var(--btn-bg-color);
-    border: 2px solid var(--main-bg-color);
+    border: 2px solid var(--main-bg-color)
 }
 
 .nav {
@@ -366,7 +365,6 @@ body {
     overflow: hidden;
     padding: 0;
     font-size: 14px
-
 }
 
 .nav-head {
@@ -381,7 +379,7 @@ body {
 .nav-inner-icon {
     padding: 10px 12px;
     font-size: 14px;
-    margin: 0;
+    margin: 0
 
 }
 
@@ -414,7 +412,7 @@ body {
 .nav-body {
     overflow-y: scroll;
     width: 100%;
-    height: 380px;
+    height: 380px
 }
 
 .nav-body h3 {
@@ -457,18 +455,3 @@ body {
         width: 325px
     }
 }
-
-/* 
-@media screen and (min-height: 501px){
-    
-    .calculator{
-        height: 100%;
-    }
-
-    .left {
-        height: 100%;
-    }
-    .varbody {
-        height: 700px;
-    }
-} */
