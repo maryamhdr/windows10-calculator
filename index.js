@@ -5,6 +5,9 @@ document.getElementById("btn1").className += " active";
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
 
+var txtResult = "";
+var txtExpression = "";
+
 function changekbdmode(evt, keyMode) {
     var i, tabcontent, tablinks;
 
@@ -53,6 +56,31 @@ function closeCal() {
     document.getElementById("openIcon").style.display = "inline-block";
 }
 
-function vlaueBtnHandler(vlaue) {
-    console.log(vlaue);
+function valueBtnHandler(value, type) {
+
+    if (txtResult === "") {
+        if(type === 'symbol'){
+            return;
+        }
+        if(value === "0"){
+            return;
+        }else{
+            
+        }
+    }
+
+    switch (type) {
+        case 'number':
+            txtResult += value;
+            result.textContent = txtResult;
+            break;
+        case 'symbol':
+            txtResult += " " + value + " ";
+            txtExpression += txtResult;
+            expression.textContent = txtExpression;
+            result.textContent = "0";
+            txtResult = "";
+            break;
+    }
+
 }
