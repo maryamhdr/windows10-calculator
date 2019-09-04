@@ -84,3 +84,15 @@ function valueBtnHandler(value, type) {
     }
 
 }
+
+function clearAllInput() {
+    txtResult = "";
+    txtExpression = "";
+    result.textContent = "0";
+    expression.textContent = "0";
+}
+
+function clearResult() {
+    txtResult = "";
+    result.textContent = "0";
+}
