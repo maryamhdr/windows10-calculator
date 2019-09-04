@@ -353,6 +353,14 @@ body {
     border: 2px solid var(--main-bg-color)
 }
 
+.btn-item {
+    width: 100%;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    outline: none
+}
+
 .nav {
     width: 0;
     height: 466px;

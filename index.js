@@ -1,6 +1,9 @@
 document.getElementsByClassName("tablinks")[0].className += " active";
-document.getElementById("keypad").style.display = "flex"
-document.getElementById("btn1").className += " active"
+document.getElementById("keypad").style.display = "flex";
+document.getElementById("btn1").className += " active";
+
+var expression = document.getElementById("expression");
+var result = document.getElementById("result");
 
 function changekbdmode(evt, keyMode) {
     var i, tabcontent, tablinks;
@@ -41,11 +44,15 @@ function closeNav() {
 }
 
 function openCal() {
-    document.getElementById("myCal").style.display = "block"
-    document.getElementById("openIcon").style.display = "none"
+    document.getElementById("myCal").style.display = "block";
+    document.getElementById("openIcon").style.display = "none";
 }
 
 function closeCal() {
-    document.getElementById("myCal").style.display = "none"
-    document.getElementById("openIcon").style.display = "inline-block"
+    document.getElementById("myCal").style.display = "none";
+    document.getElementById("openIcon").style.display = "inline-block";
+}
+
+function vlaueBtnHandler(vlaue) {
+    console.log(vlaue);
 }
