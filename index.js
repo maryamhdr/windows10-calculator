@@ -96,3 +96,7 @@ function clearResult() {
     txtResult = "";
     result.textContent = "0";
 }
+
+(function check(){
+    console.log("test")
+})();
