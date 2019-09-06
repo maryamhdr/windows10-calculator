@@ -59,13 +59,11 @@ function closeCal() {
 function valueBtnHandler(value, type) {
 
     if (txtResult === "") {
-        if(type === 'symbol'){
+        if (type === 'symbol') {
             return;
         }
-        if(value === "0"){
+        if (value === "0") {
             return;
-        }else{
-            
         }
     }
 
@@ -97,3 +95,17 @@ function clearResult() {
     result.textContent = "0";
 }
 
+function backspaceResult() {
+    if(txtResult === "") {
+        console.log("nul")
+        return;
+    }else {
+        var str = txtResult;
+        str = str.substring(0, str.length - 1);
+        console.log(txtResult);
+        result.textContent = str;
+        txtResult = str;
+        return;
+    }
+    
+}
