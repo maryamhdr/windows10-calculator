@@ -54,6 +54,15 @@ function openCal() {
 function closeCal() {
     document.getElementById("myCal").style.display = "none";
     document.getElementById("openIcon").style.display = "inline-block";
+    txtResult = "";
+    txtExpression = "";
+    result.textContent = "0";
+    expression.textContent = "0";
+}
+
+function minimizeCal() {
+    document.getElementById("myCal").style.display = "none";
+    document.getElementById("openIcon").style.display = "inline-block";
 }
 
 function valueBtnHandler(value, type) {
@@ -62,12 +71,12 @@ function valueBtnHandler(value, type) {
         if (type === 'symbol') {
             return;
         }
-        if(txtExpression === ""){
+        if (txtExpression === "") {
             if (value === "0") {
                 return;
             }
         }
-        
+
     }
 
     switch (type) {
@@ -89,6 +98,10 @@ function valueBtnHandler(value, type) {
 function calculateResult() {
 
     var calExpression = "";
+
+    if (txtExpression === "") {
+        return;
+    }
 
     txtExpression += txtResult;
     calExpression = txtExpression;
@@ -118,19 +131,19 @@ function clearResult() {
 }
 
 function backspaceResult() {
-    if(txtResult === "") {
+    if (txtResult === "") {
         // console.log("null");
         result.textContent = "0";
         return;
     }
 
     txtResult = txtResult.substring(0, txtResult.length - 1);
-    if(txtResult === ""){
+    if (txtResult === "") {
         result.textContent = "0";
         // console.log(txtResult)
-    }else {
+    } else {
         result.textContent = txtResult;
         // console.log(txtResult)
     }
-    
+
 }
