@@ -97,15 +97,18 @@ function clearResult() {
 
 function backspaceResult() {
     if(txtResult === "") {
-        console.log("nul")
+        console.log("nul");
+        result.textContent = "0";
         return;
+    }
+
+    txtResult = txtResult.substring(0, txtResult.length - 1);
+    if(txtResult === ""){
+        result.textContent = "0";
+        console.log(txtResult)
     }else {
-        var str = txtResult;
-        str = str.substring(0, str.length - 1);
-        console.log(txtResult);
-        result.textContent = str;
-        txtResult = str;
-        return;
+        result.textContent = txtResult;
+        console.log(txtResult)
     }
     
 }
