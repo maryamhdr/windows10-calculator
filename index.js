@@ -85,6 +85,19 @@ function valueBtnHandler(value, type) {
             result.textContent = txtResult;
             break;
         case 'symbol':
+            if(value === "±") {
+                if(txtResult.includes("-")){
+                    txtResult = txtResult.replace("-", "");
+                    txtResult = txtResult.replace("(", "");
+                    txtResult = txtResult.replace(")", "");
+                    result.textContent = txtResult;
+                    return;
+                }
+                txtResult = "(-" + txtResult + ")";
+                console.log(txtResult);
+                result.textContent = txtResult;
+                return;
+            }
             txtResult += " " + value + " ";
             txtExpression += txtResult;
             expression.textContent = txtExpression;
