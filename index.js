@@ -62,9 +62,12 @@ function valueBtnHandler(value, type) {
         if (type === 'symbol') {
             return;
         }
-        if (value === "0") {
-            return;
+        if(txtExpression === ""){
+            if (value === "0") {
+                return;
+            }
         }
+        
     }
 
     switch (type) {
@@ -83,6 +86,25 @@ function valueBtnHandler(value, type) {
 
 }
 
+function calculateResult() {
+
+    var calExpression = "";
+
+    txtExpression += txtResult;
+    calExpression = txtExpression;
+    txtExpression += " =";
+    expression.textContent = txtExpression;
+
+    txtResult = "";
+    txtExpression = "";
+
+    calExpression = calExpression.replace("÷", "/");
+    calExpression = calExpression.replace("×", "*");
+    // console.log(calExpression);
+    // console.log(eval(calExpression));
+    result.textContent = eval(calExpression);
+}
+
 function clearAllInput() {
     txtResult = "";
     txtExpression = "";
@@ -97,7 +119,7 @@ function clearResult() {
 
 function backspaceResult() {
     if(txtResult === "") {
-        console.log("nul");
+        // console.log("null");
         result.textContent = "0";
         return;
     }
@@ -105,10 +127,10 @@ function backspaceResult() {
     txtResult = txtResult.substring(0, txtResult.length - 1);
     if(txtResult === ""){
         result.textContent = "0";
-        console.log(txtResult)
+        // console.log(txtResult)
     }else {
         result.textContent = txtResult;
-        console.log(txtResult)
+        // console.log(txtResult)
     }
     
 }
