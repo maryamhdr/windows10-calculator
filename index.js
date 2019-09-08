@@ -61,6 +61,7 @@ function closeCal() {
     txtExpression = "";
     result.textContent = "0";
     expression.textContent = "0";
+    memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
 }
 
 function minimizeCal() {
@@ -88,8 +89,8 @@ function valueBtnHandler(value, type) {
             result.textContent = txtResult;
             break;
         case 'symbol':
-            if(value === "±") {
-                if(txtResult.includes("-")){
+            if (value === "±") {
+                if (txtResult.includes("-")) {
                     txtResult = txtResult.replace("-", "");
                     txtResult = txtResult.replace("(", "");
                     txtResult = txtResult.replace(")", "");
@@ -97,7 +98,7 @@ function valueBtnHandler(value, type) {
                     return;
                 }
                 txtResult = "(-" + txtResult + ")";
-                console.log(txtResult);
+                // console.log(txtResult);
                 result.textContent = txtResult;
                 return;
             }
@@ -166,7 +167,7 @@ function backspaceResult() {
 
 function storeInMemory() {
 
-    if(memoryItmId === 0){
+    if (memoryItmId === 0) {
         memoryList.innerHTML = "";
     }
 
@@ -195,17 +196,39 @@ function storeInMemory() {
     btnIncrement.textContent = "M+";
     btnDecrement.textContent = "M-";
 
+    btnDelete.onclick = deleteMemoryItem;
+
     savedValueControls.appendChild(btnDelete);
     savedValueControls.appendChild(btnIncrement);
     savedValueControls.appendChild(btnDecrement);
-    
+
     listItem.appendChild(savedValue);
     listItem.appendChild(savedValueControls);
     memoryList.appendChild(listItem);
 
     listItem.setAttribute("id", id);
 
-    // console.log(listItem.getAttribute("id"));
-
-    memoryItmId ++;
+    memoryItmId++;
+    txtResult ="";
 }
+
+function deleteMemoryItem() {
+    // console.log(this.parentNode.parentNode.getAttribute("id"))
+    var id = this.parentNode.parentNode.getAttribute("id");
+    var element = document.getElementById(id);
+
+    element.parentNode.removeChild(element);
+    
+    if(!memoryList.hasChildNodes()){
+        memoryList.innerHTML = "<li>There's nothing saved in memory</li>"
+    }
+}
+
+// function incremetMemoryItem(id){
+//     console.log(id)
+//     var element = document.getElementById(id);
+    
+//     var value = parseInt(element.getElementsByClassName("saved-value").textContent);
+//     value += value;
+//     element.getElementsByClassName("saved-value").textContent = value;
+// }
