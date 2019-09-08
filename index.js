@@ -226,7 +226,9 @@ function deleteMemoryItem() {
     element.parentNode.removeChild(element);
 
     if(!memoryList.hasChildNodes()){
-        memoryList.innerHTML = "<li>There's nothing saved in memory</li>"
+        memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
+        trashIcon.style.display = "none";
+        memoryItmId = 0;
     }
 }
 
@@ -253,4 +255,5 @@ function decrementMemoryItem(){
 function trashFunct(){
     memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
     trashIcon.style.display = "none";
+    memoryItmId = 0;
 }
