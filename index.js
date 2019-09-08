@@ -4,9 +4,11 @@ document.getElementById("btn1").className += " active";
 
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
+var memoryList = document.getElementById("memoryList");
 
 var txtResult = "";
 var txtExpression = "";
+var memoryItmId = 0;
 
 function changekbdmode(evt, keyMode) {
     var i, tabcontent, tablinks;
@@ -162,7 +164,32 @@ function backspaceResult() {
 }
 
 function storeInMemory() {
-
     var value = parseInt(result.textContent);
-    console.log(value)
+
+    var listItem = document.createElement("li");
+    var savedValue = document.createElement("div");
+    var savedValueControls = document.createElement("div");
+    var btnDelete = document.createElement("button");
+    var btnIncrement = document.createElement("button");
+    var btnDecrement = document.createElement("button");
+
+    listItem.className = "memory-item";
+    savedValue.className = "saved-value";
+    savedValueControls.className = "saved-value-controls";
+    btnDecrement.className = "control-btn";
+    btnIncrement.className = "control-btn";
+    btnDelete.className = "control-btn";
+
+    savedValue.textContent = value;
+    btnDelete.textContent = "MC";
+    btnIncrement.textContent = "M+";
+    btnDecrement.textContent = "M-";
+
+    savedValueControls.appendChild(btnDelete);
+    savedValueControls.appendChild(btnIncrement);
+    savedValueControls.appendChild(btnDecrement);
+    
+    listItem.appendChild(savedValue);
+    listItem.appendChild(savedValueControls);
+    memoryList.appendChild(listItem);
 }
