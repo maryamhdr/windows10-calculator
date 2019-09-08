@@ -116,23 +116,6 @@ body {
     width: 325px
 }
 
-.memory-screen {
-    display: none;
-    padding: 10px 12px;
-    font-size: 14px;
-    font-weight: bold
-}
-
-.memory-screen-title {
-    display: inline-block;
-    padding-bottom: 5px;
-    border-bottom: 4px solid var(--dark-hover-color)
-}
-
-.memory-screen-content {
-    margin-top: 25px
-}
-
 .side-bar {
     width: 100%;
     height: 43px;
@@ -364,7 +347,8 @@ button:disabled, button[disabled] {
 
 .nav {
     width: 0;
-    height: 466px;
+    min-height: 466px;
+    height: 100%;
     background-color: #f4f4f4;
     position: absolute;
     z-index: 1;
@@ -378,6 +362,7 @@ button:disabled, button[disabled] {
 
 .nav-head {
     width: 100%;
+    height: 43px;
     padding: 0;
     display: flex;
     align-items: center;
@@ -402,6 +387,7 @@ button:disabled, button[disabled] {
 
 .nav-foot {
     width: 100%;
+    height: 43px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -421,7 +407,8 @@ button:disabled, button[disabled] {
 .nav-body {
     overflow-y: scroll;
     width: 100%;
-    height: 380px
+    min-height: 380px;
+    height: calc(100% - 86px)
 }
 
 .nav-body h3 {
@@ -442,6 +429,55 @@ button:disabled, button[disabled] {
 .active-item {
     background-color: var(--normal-hover-color);
     border-left: 4px solid var(--dark-hover-color)
+}
+
+.memory-screen {
+    display: none;
+    height: 100%;
+    min-height: 466px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold
+}
+
+.memory-head {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 43px
+    /* border-bottom: 4px solid var(--dark-hover-color) */
+}
+
+.memory-foot {
+    display: flex;
+    width: 100%;
+    height: 43px;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    font-size: 20px
+}
+
+.memory-foot i {
+    display: flex;
+    width: 43px;
+    height: 43px;
+    margin: 0;
+    justify-content: center;
+    align-items: center
+}
+
+.memory-foot i:hover {
+    background-color: var(--light-hover-color);
+    cursor: pointer
+}
+
+.memory-body {
+    overflow-y: auto;
+    width: 100%;
+    min-height: 380px;
+    height: calc(100% - 86px)
 }
 
 @media screen and (min-width: 326px) {

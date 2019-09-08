@@ -156,14 +156,15 @@
                         <button class="tablinks btn3" onclick="storeInMemory()">MS</i>
                             <div class="tooltip6">Memory store (Ctrl+M)</div>
                         </button>
-                        <button class="tablinks btn4" onclick="" >M<i class="fas fa-caret-down"></i>
+                        <button class="tablinks btn4" onclick="">M<i class="fas fa-caret-down"></i>
                             <div class="tooltip7">Memory</div>
                         </button>
                     </div>
                     <div class="main-btn-container" id="keypad">
                         <div class="col-1">
                             <div class="btn dark-btn"><button class="btn-item" value="Lsh" disabled>Lsh</button></div>
-                            <div class="btn dark-btn"><button class="btn-item" value="&#8593;" disabled>&#8593;</button></div>
+                            <div class="btn dark-btn"><button class="btn-item" value="&#8593;" disabled>&#8593;</button>
+                            </div>
                             <div class="btn white-btn"><button class="btn-item" value="A" disabled>A</button></div>
                             <div class="btn white-btn"><button class="btn-item" value="C" disabled>C</button></div>
                             <div class="btn white-btn"><button class="btn-item" value="E" disabled>E</button></div>
@@ -179,35 +180,54 @@
                         </div>
                         <div class="col-3">
                             <div class="btn dark-btn"><button class="btn-item" value="Or" disabled>Or</button></div>
-                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="CE" onclick="clearResult()">CE</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="7" onclick="valueBtnHandler(this.value, 'number')">7</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="4" onclick="valueBtnHandler(this.value, 'number')">4</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="1" onclick="valueBtnHandler(this.value, 'number')">1</button></div>
-                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="&plusmn;" onclick="valueBtnHandler(this.value, 'symbol')">&plusmn;</button></div>
+                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="CE"
+                                    onclick="clearResult()">CE</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="7"
+                                    onclick="valueBtnHandler(this.value, 'number')">7</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="4"
+                                    onclick="valueBtnHandler(this.value, 'number')">4</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="1"
+                                    onclick="valueBtnHandler(this.value, 'number')">1</button></div>
+                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="&plusmn;"
+                                    onclick="valueBtnHandler(this.value, 'symbol')">&plusmn;</button></div>
                         </div>
                         <div class="col-4">
                             <div class="btn dark-btn"><button class="btn-item" value="Xor" disabled>Xor</button></div>
-                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="C" onclick="clearAllInput()">C</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="8" onclick="valueBtnHandler(this.value, 'number')">8</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="5" onclick="valueBtnHandler(this.value, 'number')">5</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="2" onclick="valueBtnHandler(this.value, 'number')">2</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="0" onclick="valueBtnHandler(this.value, 'number')">0</button></div>
+                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="C"
+                                    onclick="clearAllInput()">C</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="8"
+                                    onclick="valueBtnHandler(this.value, 'number')">8</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="5"
+                                    onclick="valueBtnHandler(this.value, 'number')">5</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="2"
+                                    onclick="valueBtnHandler(this.value, 'number')">2</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="0"
+                                    onclick="valueBtnHandler(this.value, 'number')">0</button></div>
                         </div>
                         <div class="col-5">
                             <div class="btn dark-btn"><button class="btn-item" value="Not" disabled>Not</button></div>
-                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="backspace" onclick="backspaceResult()"><i class="fas fa-backspace"></i></button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="9" onclick="valueBtnHandler(this.value, 'number')">9</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="6" onclick="valueBtnHandler(this.value, 'number')">6</button></div>
-                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="3" onclick="valueBtnHandler(this.value, 'number')">3</button></div>
+                            <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="backspace"
+                                    onclick="backspaceResult()"><i class="fas fa-backspace"></i></button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="9"
+                                    onclick="valueBtnHandler(this.value, 'number')">9</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="6"
+                                    onclick="valueBtnHandler(this.value, 'number')">6</button></div>
+                            <div class="btn white-btn white-btn-hover"><button class="btn-item" value="3"
+                                    onclick="valueBtnHandler(this.value, 'number')">3</button></div>
                             <div class="btn dark-btn"><button class="btn-item" disabled>.</button></div>
                         </div>
                         <div class="col-6">
                             <div class="btn dark-btn"><button class="btn-item" value="And" disabled>And</button></div>
-                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="&divide;" onclick="valueBtnHandler(this.value, 'symbol')">&divide;</button></div>
-                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="&times;" onclick="valueBtnHandler(this.value, 'symbol')">&times;</button></div>
-                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="-" onclick="valueBtnHandler(this.value, 'symbol')">-</button></div>
-                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="+" onclick="valueBtnHandler(this.value, 'symbol')">+</button></div>
-                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="=" onclick="calculateResult()">=</button></div>
+                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="&divide;"
+                                    onclick="valueBtnHandler(this.value, 'symbol')">&divide;</button></div>
+                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="&times;"
+                                    onclick="valueBtnHandler(this.value, 'symbol')">&times;</button></div>
+                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="-"
+                                    onclick="valueBtnHandler(this.value, 'symbol')">-</button></div>
+                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="+"
+                                    onclick="valueBtnHandler(this.value, 'symbol')">+</button></div>
+                            <div class="btn opr-btn opr-btn-hover"><button class="btn-item" value="="
+                                    onclick="calculateResult()">=</button></div>
                         </div>
                     </div>
 
@@ -241,11 +261,16 @@
             </div>
 
             <div class="memory-screen">
-                <div class="memory-screen-title">
+                <div class="memory-head">
                     Memory
                 </div>
-                <div class="memory-screen-content">
+                <div class="memory-body">
                     There's nothing saved in memory
+                </div>
+                <div class="memory-foot">
+                    <span>
+                        <i class="far fa-trash-alt fa-fw"></i>
+                    </span>
                 </div>
             </div>
         </div>
