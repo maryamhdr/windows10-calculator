@@ -195,8 +195,11 @@ function storeInMemory() {
     btnDelete.textContent = "MC";
     btnIncrement.textContent = "M+";
     btnDecrement.textContent = "M-";
+    listItem.setAttribute("value", value);
 
     btnDelete.onclick = deleteMemoryItem;
+    btnIncrement.onclick = incremetMemoryItem;
+    btnDecrement.onclick = decrementMemoryItem;
 
     savedValueControls.appendChild(btnDelete);
     savedValueControls.appendChild(btnIncrement);
@@ -218,17 +221,28 @@ function deleteMemoryItem() {
     var element = document.getElementById(id);
 
     element.parentNode.removeChild(element);
-    
+
     if(!memoryList.hasChildNodes()){
         memoryList.innerHTML = "<li>There's nothing saved in memory</li>"
     }
 }
 
-// function incremetMemoryItem(id){
-//     console.log(id)
-//     var element = document.getElementById(id);
-    
-//     var value = parseInt(element.getElementsByClassName("saved-value").textContent);
-//     value += value;
-//     element.getElementsByClassName("saved-value").textContent = value;
-// }
+function incremetMemoryItem(){
+    var id = this.parentNode.parentNode.getAttribute("id");
+    var element = document.getElementById(id).childNodes[0];
+    var value = parseInt(document.getElementById(id).getAttribute("value"));
+    var result = parseInt(element.textContent);
+
+    result += value;
+    element.textContent = result;
+}
+
+function decrementMemoryItem(){
+    var id = this.parentNode.parentNode.getAttribute("id");
+    var element = document.getElementById(id).childNodes[0];
+    var value = parseInt(document.getElementById(id).getAttribute("value"));
+    var result = parseInt(element.textContent);
+
+    result -= value;
+    element.textContent = result;
+}
