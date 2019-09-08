@@ -10,6 +10,9 @@ var trashIcon = document.getElementById("trashIcon");
 
 var txtResult = "";
 var txtExpression = "";
+var lastResult = 0;
+var lastOperator = "+";
+
 var memoryItmId = 0;
 
 function changekbdmode(evt, keyMode) {
@@ -89,6 +92,7 @@ function valueBtnHandler(value, type) {
         case 'number':
             txtResult += value;
             result.textContent = txtResult;
+            lastResult = parseFloat(txtResult);
             break;
         case 'symbol':
             if (value === "±") {
@@ -100,14 +104,26 @@ function valueBtnHandler(value, type) {
                     return;
                 }
                 txtResult = "(-" + txtResult + ")";
-                // console.log(txtResult);
                 result.textContent = txtResult;
                 return;
             }
-            txtResult += " " + value + " ";
+
+            lastOperator = value;
+            // console.log(lastResult);
+
+            if(expression.textContent === "0"){
+                expression.textContent = "";
+            }
+
             txtExpression += txtResult;
-            expression.textContent = txtExpression;
-            result.textContent = "0";
+            txtExpression = txtExpression.replace("÷", "/");
+            txtExpression = txtExpression.replace("×", "*");
+            lastResult = eval(txtExpression);
+            txtExpression = lastResult + value;
+            
+            result.textContent = lastResult;
+            expression.textContent += txtResult + " " + value + " ";
+
             txtResult = "";
             break;
     }
@@ -119,10 +135,27 @@ function calculateResult() {
     var calExpression = "";
 
     if (txtExpression === "") {
+        // let expr = lastResult + 
         return;
     }
 
-    txtExpression += txtResult;
+    if (txtExpression.charAt(txtExpression.length - 2) === "+" ||
+        txtExpression.charAt(txtExpression.length - 2) === "-" ||
+        txtExpression.charAt(txtExpression.length - 2) === "÷" ||
+        txtExpression.charAt(txtExpression.length - 2) === "×") {
+
+        let newStr = "";
+        // console.log(lastResult)
+        txtExpression = txtExpression.substring(0, txtExpression.length - 2);
+        newStr = result.textContent + lastOperator + lastResult;
+        newStr = newStr.replace("÷", "/");
+        newStr = newStr.replace("×", "*");
+        result.textContent = eval(newStr);
+        txtResult = "";
+        txtExpression = "";
+        return;
+    }
+
     calExpression = txtExpression;
     txtExpression += " =";
     expression.textContent = txtExpression;
@@ -132,8 +165,7 @@ function calculateResult() {
 
     calExpression = calExpression.replace("÷", "/");
     calExpression = calExpression.replace("×", "*");
-    // console.log(calExpression);
-    // console.log(eval(calExpression));
+
     result.textContent = eval(calExpression);
 }
 
@@ -157,6 +189,7 @@ function backspaceResult() {
     }
 
     txtResult = txtResult.substring(0, txtResult.length - 1);
+    lastResult = parseFloat(txtResult);
     if (txtResult === "") {
         result.textContent = "0";
         // console.log(txtResult)
@@ -215,7 +248,7 @@ function storeInMemory() {
     listItem.setAttribute("id", id);
 
     memoryItmId++;
-    txtResult ="";
+    txtResult = "";
 }
 
 function deleteMemoryItem() {
@@ -225,14 +258,14 @@ function deleteMemoryItem() {
 
     element.parentNode.removeChild(element);
 
-    if(!memoryList.hasChildNodes()){
+    if (!memoryList.hasChildNodes()) {
         memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
         trashIcon.style.display = "none";
         memoryItmId = 0;
     }
 }
 
-function incremetMemoryItem(){
+function incremetMemoryItem() {
     var id = this.parentNode.parentNode.getAttribute("id");
     var element = document.getElementById(id).childNodes[0];
     var value = parseInt(document.getElementById(id).getAttribute("value"));
@@ -242,7 +275,7 @@ function incremetMemoryItem(){
     element.textContent = result;
 }
 
-function decrementMemoryItem(){
+function decrementMemoryItem() {
     var id = this.parentNode.parentNode.getAttribute("id");
     var element = document.getElementById(id).childNodes[0];
     var value = parseInt(document.getElementById(id).getAttribute("value"));
@@ -252,7 +285,7 @@ function decrementMemoryItem(){
     element.textContent = result;
 }
 
-function trashFunct(){
+function trashFunct() {
     memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
     trashIcon.style.display = "none";
     memoryItmId = 0;
