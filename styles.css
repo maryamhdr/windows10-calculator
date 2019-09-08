@@ -116,17 +116,21 @@ body {
     width: 325px
 }
 
-.right {
+.memory-screen {
     display: none;
     padding: 10px 12px;
     font-size: 14px;
     font-weight: bold
 }
 
-.right-title {
+.memory-screen-title {
     display: inline-block;
     padding-bottom: 5px;
     border-bottom: 4px solid var(--dark-hover-color)
+}
+
+.memory-screen-content {
+    margin-top: 25px
 }
 
 .side-bar {
@@ -455,7 +459,7 @@ button:disabled, button[disabled] {
 }
 
 @media screen and (min-width: 560px) {
-    .right {
+    .memory-screen {
         display: block;
         width: 325px
     }

@@ -160,3 +160,9 @@ function backspaceResult() {
     }
 
 }
+
+function storeInMemory() {
+
+    var value = parseInt(result.textContent);
+    console.log(value)
+}
