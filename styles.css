@@ -461,7 +461,7 @@ button:disabled, button[disabled] {
 }
 
 .memory-foot i {
-    display: flex;
+    display: none;
     width: 43px;
     height: 43px;
     margin: 0;

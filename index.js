@@ -6,6 +6,7 @@ var expression = document.getElementById("expression");
 var result = document.getElementById("result");
 var memoryList = document.getElementById("memoryList");
 var emptyMemory = document.getElementById("emptyMemory");
+var trashIcon = document.getElementById("trashIcon");
 
 var txtResult = "";
 var txtExpression = "";
@@ -62,6 +63,7 @@ function closeCal() {
     result.textContent = "0";
     expression.textContent = "0";
     memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
+    memoryItmId = 0;
 }
 
 function minimizeCal() {
@@ -169,6 +171,7 @@ function storeInMemory() {
 
     if (memoryItmId === 0) {
         memoryList.innerHTML = "";
+        trashIcon.style.display = "flex";
     }
 
     var id = "item" + memoryItmId;
@@ -245,4 +248,9 @@ function decrementMemoryItem(){
 
     result -= value;
     element.textContent = result;
+}
+
+function trashFunct(){
+    memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
+    trashIcon.style.display = "none";
 }
