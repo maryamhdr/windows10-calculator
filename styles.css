@@ -445,7 +445,8 @@ button:disabled, button[disabled] {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 43px
+    height: 43px;
+    font-size: 16px
     /* border-bottom: 4px solid var(--dark-hover-color) */
 }
 
@@ -478,6 +479,61 @@ button:disabled, button[disabled] {
     width: 100%;
     min-height: 380px;
     height: calc(100% - 86px)
+}
+
+.memory-list {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none
+}
+
+.memory-item {
+    width: 100%;
+    height: 75px
+}
+
+.memory-item:hover {
+    background-color: var(--light-hover-color)
+}
+
+.saved-value {
+    width: 1005;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 8px;
+    font-size: 18px
+}
+
+.saved-value-controls {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.control-btn {
+    cursor: default;
+    width: 36px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: rgb(172, 108, 48)
+}
+
+.control-btn:hover {
+    color: #000;
+    background-color: var(--dark-hover-color)
 }
 
 @media screen and (min-width: 326px) {
