@@ -5,6 +5,7 @@ document.getElementById("btn1").className += " active";
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
 var memoryList = document.getElementById("memoryList");
+var emptyMemory = document.getElementById("emptyMemory");
 
 var txtResult = "";
 var txtExpression = "";
@@ -164,6 +165,15 @@ function backspaceResult() {
 }
 
 function storeInMemory() {
+
+    if(memoryItmId === 0){
+        memoryList.innerHTML = "";
+    }
+
+    var id = "item" + memoryItmId;
+
+    // console.log(id);
+
     var value = parseInt(result.textContent);
 
     var listItem = document.createElement("li");
@@ -192,4 +202,10 @@ function storeInMemory() {
     listItem.appendChild(savedValue);
     listItem.appendChild(savedValueControls);
     memoryList.appendChild(listItem);
+
+    listItem.setAttribute("id", id);
+
+    // console.log(listItem.getAttribute("id"));
+
+    memoryItmId ++;
 }
