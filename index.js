@@ -93,6 +93,7 @@ function valueBtnHandler(value, type) {
             txtResult += value;
             result.textContent = txtResult;
             lastResult = parseFloat(txtResult);
+            // console.log(lastResult);
             break;
         case 'symbol':
             if (value === "±") {
@@ -130,6 +131,7 @@ function valueBtnHandler(value, type) {
             txtExpression = txtExpression.replace("÷", "/");
             txtExpression = txtExpression.replace("×", "*");
             lastResult = eval(txtExpression);
+            // console.log(lastResult);
             txtExpression = lastResult + value;
 
             result.textContent = lastResult;
@@ -143,42 +145,40 @@ function valueBtnHandler(value, type) {
 
 function calculateResult() {
 
-    var calExpression = "";
-
     if (txtExpression === "") {
         let recursiveResult = parseFloat(result.textContent);
-        // console.log(recursiveResult + lastOperator + lastResult);
+        console.log(recursiveResult + lastOperator + lastResult);
         result.textContent = eval(recursiveResult + lastOperator + lastResult);
         expression.textContent = "0";
         return;
     }
 
-    if (txtExpression.charAt(txtExpression.length - 1) === "+" ||
-        txtExpression.charAt(txtExpression.length - 1) === "-" ||
-        txtExpression.charAt(txtExpression.length - 1) === "÷" ||
-        txtExpression.charAt(txtExpression.length - 1) === "×") {
+    // if (txtExpression.charAt(txtExpression.length - 1) === "+" ||
+    //     txtExpression.charAt(txtExpression.length - 1) === "-" ||
+    //     txtExpression.charAt(txtExpression.length - 1) === "÷" ||
+    //     txtExpression.charAt(txtExpression.length - 1) === "×") {
 
-        let recursiveResult = 0;
+    //     let recursiveResult = 0;
 
-        txtExpression = txtExpression.substring(0, txtExpression.length - 1);
+    //     txtExpression = txtExpression.substring(0, txtExpression.length - 1);
 
-        txtExpression += txtResult;
-        txtExpression = txtExpression.replace("÷", "/");
-        txtExpression = txtExpression.replace("×", "*");
-        recursiveResult = eval(txtExpression);
-        expression.textContent += txtResult + " =";
+    //     txtExpression += txtResult;
+    //     txtExpression = txtExpression.replace("÷", "/");
+    //     txtExpression = txtExpression.replace("×", "*");
+    //     recursiveResult = eval(txtExpression);
+    //     expression.textContent += txtResult + " =";
 
-        txtResult = "";
-        txtExpression = "";
-        result.textContent = eval(recursiveResult + lastOperator + lastResult);
-        return;
+    //     txtResult = "";
+    //     txtExpression = "";
+    //     result.textContent = eval(recursiveResult + lastOperator + lastResult);
+    //     return;
 
-    }
+    // }
 
     txtExpression += txtResult;
     txtExpression = txtExpression.replace("÷", "/");
     txtExpression = txtExpression.replace("×", "*");
-    // console.log(txtExpression);
+    // console.log(eval(txtExpression));
     result.textContent = eval(txtExpression);
     expression.textContent += txtResult + " =";
 
