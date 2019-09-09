@@ -145,40 +145,33 @@ function valueBtnHandler(value, type) {
 
 function calculateResult() {
 
+    txtExpression += txtResult;
+
     if (txtExpression === "") {
+        
         let recursiveResult = parseFloat(result.textContent);
-        console.log(recursiveResult + lastOperator + lastResult);
         result.textContent = eval(recursiveResult + lastOperator + lastResult);
         expression.textContent = "0";
         return;
     }
 
-    // if (txtExpression.charAt(txtExpression.length - 1) === "+" ||
-    //     txtExpression.charAt(txtExpression.length - 1) === "-" ||
-    //     txtExpression.charAt(txtExpression.length - 1) === "÷" ||
-    //     txtExpression.charAt(txtExpression.length - 1) === "×") {
+    if (txtExpression.charAt(txtExpression.length - 1) === "+" ||
+        txtExpression.charAt(txtExpression.length - 1) === "-" ||
+        txtExpression.charAt(txtExpression.length - 1) === "÷" ||
+        txtExpression.charAt(txtExpression.length - 1) === "×") {
 
-    //     let recursiveResult = 0;
+        let recursiveResult = parseFloat(result.textContent);
 
-    //     txtExpression = txtExpression.substring(0, txtExpression.length - 1);
+        result.textContent = eval(recursiveResult + lastOperator + lastResult);
 
-    //     txtExpression += txtResult;
-    //     txtExpression = txtExpression.replace("÷", "/");
-    //     txtExpression = txtExpression.replace("×", "*");
-    //     recursiveResult = eval(txtExpression);
-    //     expression.textContent += txtResult + " =";
+        txtResult = "";
+        txtExpression = "";
+        return;
 
-    //     txtResult = "";
-    //     txtExpression = "";
-    //     result.textContent = eval(recursiveResult + lastOperator + lastResult);
-    //     return;
-
-    // }
-
-    txtExpression += txtResult;
+    }
+    
     txtExpression = txtExpression.replace("÷", "/");
     txtExpression = txtExpression.replace("×", "*");
-    // console.log(eval(txtExpression));
     result.textContent = eval(txtExpression);
     expression.textContent += txtResult + " =";
 
