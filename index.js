@@ -90,6 +90,15 @@ function valueBtnHandler(value, type) {
 
     switch (type) {
         case 'number':
+
+            if(value === "." && txtResult.includes(".")){
+                return;
+            }
+
+            if(value === "." && txtResult === ""){
+                txtResult = "0";
+            }
+        
             txtResult += value;
             result.textContent = txtResult;
             lastResult = parseFloat(txtResult);
@@ -148,7 +157,7 @@ function calculateResult() {
     txtExpression += txtResult;
 
     if (txtExpression === "") {
-        
+
         let recursiveResult = parseFloat(result.textContent);
         result.textContent = eval(recursiveResult + lastOperator + lastResult);
         expression.textContent = "0";
