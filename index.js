@@ -111,7 +111,7 @@ function valueBtnHandler(value, type) {
             lastOperator = value;
             // console.log(lastResult);
 
-            if(expression.textContent === "0"){
+            if (expression.textContent === "0") {
                 expression.textContent = "";
             }
 
@@ -120,7 +120,7 @@ function valueBtnHandler(value, type) {
             txtExpression = txtExpression.replace("×", "*");
             lastResult = eval(txtExpression);
             txtExpression = lastResult + value;
-            
+
             result.textContent = lastResult;
             expression.textContent += txtResult + " " + value + " ";
 
@@ -135,7 +135,7 @@ function calculateResult() {
     var calExpression = "";
 
     if (txtExpression === "") {
-        // let expr = lastResult + 
+        
         return;
     }
 
@@ -156,17 +156,29 @@ function calculateResult() {
         return;
     }
 
-    calExpression = txtExpression;
-    txtExpression += " =";
-    expression.textContent = txtExpression;
+    // calExpression = txtExpression;
+    // txtExpression += " =";
+    // expression.textContent = txtExpression;
+
+    // txtResult = "";
+    // txtExpression = "";
+
+    // calExpression = calExpression.replace("÷", "/");
+    // calExpression = calExpression.replace("×", "*");
+
+    // result.textContent = eval(calExpression);
+    txtExpression += txtResult;
+    txtExpression = txtExpression.replace("÷", "/");
+    txtExpression = txtExpression.replace("×", "*");
+    lastResult = eval(txtExpression);
+    // txtExpression = lastResult + value;
+
+    result.textContent = lastResult;
+    expression.textContent += txtResult + " =";
 
     txtResult = "";
     txtExpression = "";
 
-    calExpression = calExpression.replace("÷", "/");
-    calExpression = calExpression.replace("×", "*");
-
-    result.textContent = eval(calExpression);
 }
 
 function clearAllInput() {
