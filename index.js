@@ -149,43 +149,36 @@ function calculateResult() {
         let recursiveResult = parseFloat(result.textContent);
         // console.log(recursiveResult + lastOperator + lastResult);
         result.textContent = eval(recursiveResult + lastOperator + lastResult);
+        expression.textContent = "0";
         return;
     }
 
-    if (txtExpression.charAt(txtExpression.length - 2) === "+" ||
-        txtExpression.charAt(txtExpression.length - 2) === "-" ||
-        txtExpression.charAt(txtExpression.length - 2) === "÷" ||
-        txtExpression.charAt(txtExpression.length - 2) === "×") {
+    if (txtExpression.charAt(txtExpression.length - 1) === "+" ||
+        txtExpression.charAt(txtExpression.length - 1) === "-" ||
+        txtExpression.charAt(txtExpression.length - 1) === "÷" ||
+        txtExpression.charAt(txtExpression.length - 1) === "×") {
 
-        let newStr = "";
-        // console.log(lastResult)
-        txtExpression = txtExpression.substring(0, txtExpression.length - 2);
-        newStr = result.textContent + lastOperator + lastResult;
-        newStr = newStr.replace("÷", "/");
-        newStr = newStr.replace("×", "*");
-        result.textContent = eval(newStr);
+        let recursiveResult = 0;
+
+        txtExpression = txtExpression.substring(0, txtExpression.length - 1);
+
+        txtExpression += txtResult;
+        txtExpression = txtExpression.replace("÷", "/");
+        txtExpression = txtExpression.replace("×", "*");
+        recursiveResult = eval(txtExpression);
+        expression.textContent += txtResult + " =";
+
         txtResult = "";
         txtExpression = "";
+        result.textContent = eval(recursiveResult + lastOperator + lastResult);
         return;
+
     }
 
-    // calExpression = txtExpression;
-    // txtExpression += " =";
-    // expression.textContent = txtExpression;
-
-    // txtResult = "";
-    // txtExpression = "";
-
-    // calExpression = calExpression.replace("÷", "/");
-    // calExpression = calExpression.replace("×", "*");
-
-    // result.textContent = eval(calExpression);
     txtExpression += txtResult;
     txtExpression = txtExpression.replace("÷", "/");
     txtExpression = txtExpression.replace("×", "*");
-    // lastResult = eval(txtExpression);
-    // txtExpression = lastResult + value;
-
+    // console.log(txtExpression);
     result.textContent = eval(txtExpression);
     expression.textContent += txtResult + " =";
 
@@ -208,7 +201,7 @@ function clearResult() {
 
 function backspaceResult() {
     if (txtResult === "") {
-        // console.log("null");
+
         result.textContent = "0";
         return;
     }
@@ -217,10 +210,10 @@ function backspaceResult() {
     lastResult = parseFloat(txtResult);
     if (txtResult === "") {
         result.textContent = "0";
-        // console.log(txtResult)
+
     } else {
         result.textContent = txtResult;
-        // console.log(txtResult)
+
     }
 
 }
@@ -234,9 +227,7 @@ function storeInMemory() {
 
     var id = "item" + memoryItmId;
 
-    // console.log(id);
-
-    var value = parseInt(result.textContent);
+    var value = parseFloat(result.textContent);
 
     var listItem = document.createElement("li");
     var savedValue = document.createElement("div");
@@ -293,8 +284,8 @@ function deleteMemoryItem() {
 function incremetMemoryItem() {
     var id = this.parentNode.parentNode.getAttribute("id");
     var element = document.getElementById(id).childNodes[0];
-    var value = parseInt(document.getElementById(id).getAttribute("value"));
-    var result = parseInt(element.textContent);
+    var value = parseFloat(document.getElementById(id).getAttribute("value"));
+    var result = parseFloat(element.textContent);
 
     result += value;
     element.textContent = result;
@@ -303,8 +294,8 @@ function incremetMemoryItem() {
 function decrementMemoryItem() {
     var id = this.parentNode.parentNode.getAttribute("id");
     var element = document.getElementById(id).childNodes[0];
-    var value = parseInt(document.getElementById(id).getAttribute("value"));
-    var result = parseInt(element.textContent);
+    var value = parseFloat(document.getElementById(id).getAttribute("value"));
+    var result = parseFloat(element.textContent);
 
     result -= value;
     element.textContent = result;
