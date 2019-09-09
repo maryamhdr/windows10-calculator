@@ -108,7 +108,18 @@ function valueBtnHandler(value, type) {
                 return;
             }
 
-            lastOperator = value;
+            switch (value) {
+                case "+":
+                case "-":
+                    lastOperator = value;
+                    break;
+                case "÷":
+                    lastOperator = "/";
+                    break;
+                case "×":
+                    lastOperator = "*";
+                    break;
+            }
             // console.log(lastResult);
 
             if (expression.textContent === "0") {
@@ -135,7 +146,9 @@ function calculateResult() {
     var calExpression = "";
 
     if (txtExpression === "") {
-        
+        let recursiveResult = parseFloat(result.textContent);
+        // console.log(recursiveResult + lastOperator + lastResult);
+        result.textContent = eval(recursiveResult + lastOperator + lastResult);
         return;
     }
 
@@ -170,10 +183,10 @@ function calculateResult() {
     txtExpression += txtResult;
     txtExpression = txtExpression.replace("÷", "/");
     txtExpression = txtExpression.replace("×", "*");
-    lastResult = eval(txtExpression);
+    // lastResult = eval(txtExpression);
     // txtExpression = lastResult + value;
 
-    result.textContent = lastResult;
+    result.textContent = eval(txtExpression);
     expression.textContent += txtResult + " =";
 
     txtResult = "";
