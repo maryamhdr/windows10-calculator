@@ -15,6 +15,25 @@ var lastOperator = "+";
 
 var memoryItmId = 0;
 
+function resizeWindow() {
+    if(window.outerWidth > 560){
+        let i, tabcontent, tablinks;
+    
+        tabcontent = document.getElementsByClassName("main-btn-container");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+    
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+    
+        document.getElementById("keypad").style.display = "flex";
+        document.getElementById("btnKeypad").className += " active";
+    }
+}
+
 function changekbdmode(evt, keyMode) {
     var i, tabcontent, tablinks;
 

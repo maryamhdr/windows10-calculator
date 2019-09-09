@@ -11,7 +11,7 @@
     <title>Calculator</title>
 </head>
 
-<body>
+<body onresize="resizeWindow()">
     <spna class="cal-icon" onclick="openCal()" id="openIcon"><i class="fas fa-calculator"></i>
         <div class="tooltipcal">Open calculator</div>
     </spna>
@@ -144,7 +144,7 @@
                             0</button>
                     </div>
                     <div class="top-btn-row">
-                        <button class="tablinks btn1" onclick="changekbdmode(event, 'keypad')"><i
+                        <button class="tablinks btn1" onclick="changekbdmode(event, 'keypad')" id="btnKeypad"><i
                                 class="far fa-keyboard"></i>
                             <div class="tooltip4">Full keypad</div>
                         </button>
@@ -156,7 +156,8 @@
                         <button class="tablinks btn3" onclick="storeInMemory()">MS</i>
                             <div class="tooltip6">Memory store (Ctrl+M)</div>
                         </button>
-                        <button class="tablinks btn4" onclick="">M<i class="fas fa-caret-down"></i>
+                        <button class="tablinks btn4" onclick="changekbdmode(event, 'memory')">M <i
+                                class="fas fa-caret-down"></i>
                             <div class="tooltip7">Memory</div>
                         </button>
                     </div>
@@ -215,7 +216,7 @@
                             <div class="btn white-btn white-btn-hover"><button class="btn-item" value="3"
                                     onclick="valueBtnHandler(this.value, 'number')">3</button></div>
                             <div class="btn dark-btn dark-btn-hover"><button class="btn-item" value="."
-                                onclick="valueBtnHandler(this.value, 'number')">.</button></div>
+                                    onclick="valueBtnHandler(this.value, 'number')">.</button></div>
                         </div>
                         <div class="col-6">
                             <div class="btn dark-btn"><button class="btn-item" value="And" disabled>And</button></div>
@@ -257,6 +258,33 @@
                             <div></div>
                             <div></div>
                         </div>
+                    </div>
+
+                    <div class="main-btn-container" id="memory">
+                        <!-- <div class="col-1">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="col-2">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="col-3">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="col-4">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div> -->Hello World
                     </div>
                 </div>
             </div>
