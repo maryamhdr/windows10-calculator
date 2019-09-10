@@ -4,9 +4,10 @@ document.getElementById("btn1").className += " active";
 
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
-var memoryList = document.getElementById("memoryList");
-var emptyMemory = document.getElementById("emptyMemory");
-var trashIcon = document.getElementById("trashIcon");
+var memoryList1 = document.getElementById("memoryList1");
+var memoryList2 = document.getElementById("memoryList2");
+var trashIcon1 = document.getElementById("trashIcon1");
+var trashIcon2 = document.getElementById("trashIcon2");
 
 var txtResult = "";
 var txtExpression = "";
@@ -242,47 +243,89 @@ function backspaceResult() {
 function storeInMemory() {
 
     if (memoryItmId === 0) {
-        memoryList.innerHTML = "";
-        trashIcon.style.display = "flex";
+        memoryList1.innerHTML = "";
+        trashIcon1.style.display = "flex";
+        memoryList2.innerHTML = "";
+        trashIcon2.style.display = "flex";
     }
 
-    var id = "item" + memoryItmId;
+    var id1 = "item1_" + memoryItmId;
+    var id2 = "item2_" + memoryItmId;
 
     var value = parseFloat(result.textContent);
 
-    var listItem = document.createElement("li");
-    var savedValue = document.createElement("div");
-    var savedValueControls = document.createElement("div");
-    var btnDelete = document.createElement("button");
-    var btnIncrement = document.createElement("button");
-    var btnDecrement = document.createElement("button");
+    var listItem1 = document.createElement("li");
+    var savedValue1 = document.createElement("div");
+    var savedValueControls1 = document.createElement("div");
+    var btnDelete1 = document.createElement("button");
+    var btnIncrement1 = document.createElement("button");
+    var btnDecrement1 = document.createElement("button");
 
-    listItem.className = "memory-item";
-    savedValue.className = "saved-value";
-    savedValueControls.className = "saved-value-controls";
-    btnDecrement.className = "control-btn";
-    btnIncrement.className = "control-btn";
-    btnDelete.className = "control-btn";
+    var listItem2 = document.createElement("li");
+    var savedValue2 = document.createElement("div");
+    var savedValueControls2 = document.createElement("div");
+    var btnDelete2 = document.createElement("button");
+    var btnIncrement2 = document.createElement("button");
+    var btnDecrement2 = document.createElement("button");
 
-    savedValue.textContent = value;
-    btnDelete.textContent = "MC";
-    btnIncrement.textContent = "M+";
-    btnDecrement.textContent = "M-";
-    listItem.setAttribute("value", value);
 
-    btnDelete.onclick = deleteMemoryItem;
-    btnIncrement.onclick = incremetMemoryItem;
-    btnDecrement.onclick = decrementMemoryItem;
+    listItem1.className = "memory-item";
+    savedValue1.className = "saved-value";
+    savedValueControls1.className = "saved-value-controls";
+    btnDecrement1.className = "control-btn";
+    btnIncrement1.className = "control-btn";
+    btnDelete1.className = "control-btn";
 
-    savedValueControls.appendChild(btnDelete);
-    savedValueControls.appendChild(btnIncrement);
-    savedValueControls.appendChild(btnDecrement);
+    listItem2.className = "memory-item";
+    savedValue2.className = "saved-value";
+    savedValueControls2.className = "saved-value-controls";
+    btnDecrement2.className = "control-btn";
+    btnIncrement2.className = "control-btn";
+    btnDelete2.className = "control-btn";
 
-    listItem.appendChild(savedValue);
-    listItem.appendChild(savedValueControls);
-    memoryList.appendChild(listItem);
 
-    listItem.setAttribute("id", id);
+    savedValue1.textContent = value;
+    btnDelete1.textContent = "MC";
+    btnIncrement1.textContent = "M+";
+    btnDecrement1.textContent = "M-";
+    listItem1.setAttribute("value", value);
+
+    savedValue2.textContent = value;
+    btnDelete2.textContent = "MC";
+    btnIncrement2.textContent = "M+";
+    btnDecrement2.textContent = "M-";
+    listItem2.setAttribute("value", value);
+
+
+    btnDelete1.onclick = deleteMemoryItem;
+    btnIncrement1.onclick = incremetMemoryItem;
+    btnDecrement1.onclick = decrementMemoryItem;
+
+    btnDelete2.onclick = deleteMemoryItem;
+    btnIncrement2.onclick = incremetMemoryItem;
+    btnDecrement2.onclick = decrementMemoryItem;
+
+
+    savedValueControls1.appendChild(btnDelete1);
+    savedValueControls1.appendChild(btnIncrement1);
+    savedValueControls1.appendChild(btnDecrement1);
+
+    savedValueControls2.appendChild(btnDelete2);
+    savedValueControls2.appendChild(btnIncrement2);
+    savedValueControls2.appendChild(btnDecrement2);
+
+
+    listItem1.appendChild(savedValue1);
+    listItem1.appendChild(savedValueControls1);
+    memoryList1.appendChild(listItem1);
+
+    listItem2.appendChild(savedValue2);
+    listItem2.appendChild(savedValueControls2);
+    memoryList2.appendChild(listItem2);
+
+
+    listItem1.setAttribute("id", id1);
+    listItem2.setAttribute("id", id2);
 
     memoryItmId++;
     txtResult = "";
@@ -290,40 +333,77 @@ function storeInMemory() {
 
 function deleteMemoryItem() {
     // console.log(this.parentNode.parentNode.getAttribute("id"))
-    var id = this.parentNode.parentNode.getAttribute("id");
-    var element = document.getElementById(id);
+    var id1 = this.parentNode.parentNode.getAttribute("id");
+    var id2 = id1.replace("item1_", "item2_");
 
-    element.parentNode.removeChild(element);
+    var element1 = document.getElementById(id1);
+    var element2 = document.getElementById(id2);
 
-    if (!memoryList.hasChildNodes()) {
-        memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
-        trashIcon.style.display = "none";
+    element1.parentNode.removeChild(element1);
+    element2.parentNode.removeChild(element2);
+
+    if (!memoryList1.hasChildNodes()) {
+        memoryList1.innerHTML = "<li>There's nothing saved in memory</li>";
+        trashIcon1.style.display = "none";
+        memoryItmId = 0;
+    }
+
+    if (!memoryList2.hasChildNodes()) {
+        memoryList2.innerHTML = "<li>There's nothing saved in memory</li>";
+        trashIcon2.style.display = "none";
         memoryItmId = 0;
     }
 }
 
 function incremetMemoryItem() {
-    var id = this.parentNode.parentNode.getAttribute("id");
-    var element = document.getElementById(id).childNodes[0];
-    var value = parseFloat(document.getElementById(id).getAttribute("value"));
-    var result = parseFloat(element.textContent);
 
-    result += value;
-    element.textContent = result;
+    var id1 = this.parentNode.parentNode.getAttribute("id");
+    var id2 = id1.replace("item1_", "item2_");
+
+    var element1 = document.getElementById(id1).childNodes[0];
+    var element2 = document.getElementById(id2).childNodes[0];
+
+    var value1 = parseFloat(document.getElementById(id1).getAttribute("value"));
+    var value2 = parseFloat(document.getElementById(id2).getAttribute("value"));
+
+    var result1 = parseFloat(element1.textContent);
+    var result2 = parseFloat(element2.textContent);
+
+    result1 += value1;
+    result2 += value2;
+
+    element1.textContent = result1;
+    element2.textContent = result2;
 }
 
 function decrementMemoryItem() {
-    var id = this.parentNode.parentNode.getAttribute("id");
-    var element = document.getElementById(id).childNodes[0];
-    var value = parseFloat(document.getElementById(id).getAttribute("value"));
-    var result = parseFloat(element.textContent);
 
-    result -= value;
-    element.textContent = result;
+    var id1 = this.parentNode.parentNode.getAttribute("id");
+    var id2 = id1.replace("item1_", "item2_");
+
+    var element1 = document.getElementById(id1).childNodes[0];
+    var element2 = document.getElementById(id2).childNodes[0];
+
+    var value1 = parseFloat(document.getElementById(id1).getAttribute("value"));
+    var value2 = parseFloat(document.getElementById(id2).getAttribute("value"));
+
+    var result1 = parseFloat(element1.textContent);
+    var result2 = parseFloat(element2.textContent);
+
+    result1 -= value1;
+    result2 -= value2;
+
+    element1.textContent = result1;
+    element2.textContent = result2;
 }
 
 function trashFunct() {
-    memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
-    trashIcon.style.display = "none";
+
+    memoryList1.innerHTML = "<li>There's nothing saved in memory</li>";
+    memoryList2.innerHTML = "<li>There's nothing saved in memory</li>";
+    
+    trashIcon1.style.display = "none";
+    trashIcon2.style.display = "none";
+    
     memoryItmId = 0;
 }
