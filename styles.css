@@ -171,111 +171,44 @@ body {
     padding: 5px 12px
 }
 
-/* .screen-btn-container {
-    width: 100%;
-    height: 22%;
-    background-color: var(--main-bg-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-}
-
-.screen-btn-container button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    height: 25%;
-    width: 100%;
-    text-align: left;
-    display: block;
-    font-size: 11px;
-    font-weight: 600;
-    border-left: 5px solid transparent
-}
-
-.screen-btn-container button:hover {
-    background-color: var(--normal-hover-color)
-}
-
-.screen-btn-container button.active {
-    border-left: 5px solid var(--dark-hover-color)
-} */
-
-.top-btn-row {
+.memory-btn-row {
     width: 100%;
     height: 9.14%;
     background-color: var(--main-bg-color);
-    display: flex;
-    flex-direction: row;
     color: #000;
     padding: 2px;
     position: relative;
 }
 
-.top-btn-row .tablinks {
+.memory-btn {
     width: 16.66%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
     background-color: transparent;
-    border: none;
-    outline: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: relative;
+    position: relative
 }
 
-.top-btn-row .tablinks:hover {
+.memory-btn:last-child {
+    float: right !important
+}
+
+.memory-btn:hover {
     background-color: var(--light-hover-color);
     border: 1px solid rgba(125, 125, 125, 0.3)
 }
 
-.top-btn-row button.active {
-    color: var(--dark-hover-color);
-    border-bottom: 3px solid var(--dark-hover-color)
-}
-
-.top-btn-row .tabmode {
-    width: 33.32%;
-    height: 100%;
-    text-align: center
-}
-
-.top-btn-row .tabmode button {
-    height: 100%;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    margin: 0;
-    padding: 0 8px;
-    text-align: center
-}
-
-.top-btn-row .tabmode button:hover {
-    background-color: var(--light-hover-color);
-    border: 1px solid rgba(125, 125, 125, 0.3)
-}
-
-.btn1:hover .tooltip4 {
-    display: block
-}
-
-.btn2:hover .tooltip5 {
-    display: block
-}
-
-.btn3:hover .tooltip6 {
-    display: block
-}
-
-.btn4:hover .tooltip7 {
-    display: block
+.memory-btn:hover > div {
+    display: block;
+    top: 80
 }
 
 .main-btn-container {
     width: 100%;
     height: 54.84%;
-    display: none;
+    display: flex;
     flex-direction: row;
     background-color: transparent;
     box-sizing: border-box
@@ -334,11 +267,6 @@ body {
 
 .col-1 {
     display: none
-}
-
-
-div:disabled, div[disabled] {
-    color: #bfbfbf !important
 }
 
 .nav {
@@ -461,7 +389,6 @@ div:disabled, div[disabled] {
     width: 100%;
     height: 43px;
     font-size: 16px
-    /* border-bottom: 4px solid var(--dark-hover-color) */
 }
 
 .memory-foot {

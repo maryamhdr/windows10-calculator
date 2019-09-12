@@ -128,43 +128,39 @@
                     </span>
                     <span class="state-title">Standard</span>
                 </div>
+
                 <div class="var-body">
+
                     <div class="screen">
                         <div class="screen-holder" id="expression">0</div>
                         <div class="screen-result" id="result">0</div>
                     </div>
-                    <!-- <div class="screen-btn-container">
-                        <button class="scr-btn" onclick="activescrbtn(event, 'btn1')" id="btn1">HEX&nbsp; &nbsp; &nbsp;
-                            0</button>
-                        <button class="scr-btn" onclick="activescrbtn(event, 'btn2')" id="btn2">DEC&nbsp; &nbsp; &nbsp;
-                            0</button>
-                        <button class="scr-btn" onclick="activescrbtn(event, 'btn3')" id="btn3">OCT&nbsp; &nbsp; &nbsp;
-                            0</button>
-                        <button class="scr-btn" onclick="activescrbtn(event, 'btn4')" id="btn4">BIN&nbsp; &nbsp; &nbsp;
-                            0</button>
-                    </div> -->
-                    <div class="top-btn-row">
-                        <button class="tablinks btn1" onclick="changekbdmode(event, 'keypad')" id="btnKeypad"><i
-                                class="far fa-keyboard"></i>
-                            <div class="tooltip4">Full keypad</div>
-                        </button>
-                        <button class="tablinks btn2" onclick="changekbdmode(event, 'keyball')"><i
-                                class="fas fa-braille"></i>
-                            <div class="tooltip5">Bit toggling keypad</div>
-                        </button>
-                        <div class="tabmode"><button>DWORD</button></div>
-                        <button class="tablinks btn3" onclick="storeInMemory()">MS</i>
-                            <div class="tooltip6">Memory store (Ctrl+M)</div>
-                        </button>
-                        <button class="tablinks btn4" onclick="changekbdmode(event, 'memory')">M <i
+                    
+                    <div class="memory-btn-row">
+                        <div class="memory-btn">MC
+                            <div class="tooltip">Clear all memory</div>
+                        </div>
+                        <div class="memory-btn">MR
+                            <div class="tooltip">Memory recall</div>
+                        </div>
+                        <div class="memory-btn">M+</i>
+                            <div class="tooltip">Memory add</div>
+                        </div>
+                        <div class="memory-btn">M-</i>
+                            <div class="tooltip">Memory substract</div>
+                        </div>
+                        <div class="memory-btn" onclick="storeInMemory()">MS</i>
+                            <div class="tooltip">Memory store (Ctrl+M)</div>
+                        </div>
+                        <div class="memory-btn">M <i
                                 class="fas fa-caret-down"></i>
-                            <div class="tooltip7">Memory</div>
-                        </button>
+                            <div class="tooltip">Memory</div>
+                        </div>
                     </div>
-                    <div class="main-btn-container" id="keypad">
 
+                    <div class="main-btn-container" id="keypad">
                         <div class="col-1">
-                            
+
                             <div class="btn dark-btn dark-btn-hover">%</div>
                             <div class="btn white-btn white-btn-hover">&radic;</div>
                             <div class="btn white-btn white-btn-hover">x<sub>2</sub></div>
@@ -247,33 +243,6 @@
 
                     </div>
 
-                    <div class="main-btn-container" id="keyball">
-                        <div class="col-1">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="col-2">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="col-3">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div class="col-4">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-
                     <div class="main-btn-container memory-tab" id="memory">
                         <div class="memory-tab-body">
                             <ul class="memory-list" id="memoryList2">
@@ -297,14 +266,6 @@
                 <div class="memory-body">
                     <ul class="memory-list" id="memoryList1">
                         <li>There's nothing saved in memory</li>
-                        <!-- <li class="memory-item">
-                            <div class="saved-value">9</div>
-                            <div class="saved-value-controls">
-                                <button class="control-btn">MC</button>
-                                <button class="control-btn">M+</button>
-                                <button class="control-btn">M-</button>
-                            </div>
-                        </li> -->
                     </ul>
                 </div>
                 <div class="memory-foot">
