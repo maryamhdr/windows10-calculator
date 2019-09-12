@@ -15,6 +15,10 @@ var lastOperator = "+";
 
 var memoryItmId = 0;
 
+window.onclick = function (event) {
+    document.getElementById("myNav").style.width = "0";
+}
+
 function resizeWindow() {
     if(window.outerWidth > 560){
         let i, tabcontent, tablinks;
@@ -62,7 +66,8 @@ function changekbdmode(evt, keyMode) {
 //     evt.currentTarget.className += " active";
 // }
 
-function openNav() {
+function openNav(event) {
+    event.stopPropagation();
     document.getElementById("myNav").style.width = "265px";
     // document.getElementById("sidenav").children.style.display = "block"
 }

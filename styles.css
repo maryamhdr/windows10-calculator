@@ -329,7 +329,11 @@ body {
 }
 
 .top-row-btn {
-    display: none !important
+    display: block
+}
+
+.col-1 {
+    display: none
 }
 
 
