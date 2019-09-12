@@ -332,6 +332,10 @@ body {
     border: 1px solid var(--dark-hover-color)
 }
 
+.top-row-btn {
+    display: none !important
+}
+
 
 div:disabled, div[disabled] {
     color: #bfbfbf !important

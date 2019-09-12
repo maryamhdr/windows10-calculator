@@ -164,16 +164,16 @@
                     <div class="main-btn-container" id="keypad">
 
                         <div class="col-1">
-                            <div class="btn dark-btn" value="Rsh" disabled>Rsh</div>
-                            <div class="btn dark-btn" value="Mod" disabled>Mod</div>
-                            <div class="btn white-btn" value="B" disabled>B</div>
-                            <div class="btn white-btn" value="D" disabled>D</div>
-                            <div class="btn white-btn" value="F" disabled>F</div>
-                            <div class="btn dark-btn" value=")" disabled>)</div>
+                            
+                            <div class="btn dark-btn dark-btn-hover">%</div>
+                            <div class="btn white-btn white-btn-hover">&radic;</div>
+                            <div class="btn white-btn white-btn-hover">x<sub>2</sub></div>
+                            <div class="btn white-btn white-btn-hover">x<sup>3</sup></div>
+                            <div class="btn dark-btn dark-btn-hover">1<sub>/x</sub></div>
                         </div>
 
                         <div class="col-2">
-                            <div class="btn dark-btn" disabled>Or</div>
+                            <div class="btn dark-btn top-row-btn dark-btn-hover">%</div>
 
                             <div class="btn dark-btn dark-btn-hover" onclick="clearResult()">CE</div>
 
@@ -191,7 +191,7 @@
                         </div>
 
                         <div class="col-3">
-                            <div class="btn dark-btn" disabled>Xor</div>
+                            <div class="btn dark-btn dark-btn-hover top-row-btn">&radic;</div>
 
                             <div class="btn dark-btn dark-btn-hover" onclick="clearAllInput()">C</div>
 
@@ -209,7 +209,7 @@
                         </div>
 
                         <div class="col-4">
-                            <div class="btn dark-btn" disabled>Not</div>
+                            <div class="btn dark-btn top-row-btn dark-btn-hover">x<sup>2</sup></div>
 
                             <div class="btn dark-btn dark-btn-hover" onclick="backspaceResult()"><i
                                     class="fas fa-backspace"></i></div>
@@ -228,7 +228,7 @@
                         </div>
 
                         <div class="col-5">
-                            <div class="btn dark-btn" disabled>And</div>
+                            <div class="btn dark-btn top-row-btn dark-btn-hover">1<sub>/x</sub></div>
 
                             <div class="btn opr-btn opr-btn-hover"
                                 onclick="valueBtnHandler(this.textContent, 'symbol')">&divide;</div>
