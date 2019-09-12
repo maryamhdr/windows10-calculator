@@ -1,6 +1,5 @@
 document.getElementsByClassName("tablinks")[0].className += " active";
 document.getElementById("keypad").style.display = "flex";
-document.getElementById("btn1").className += " active";
 
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
