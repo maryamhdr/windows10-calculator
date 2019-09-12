@@ -52,16 +52,16 @@ function changekbdmode(evt, keyMode) {
     evt.currentTarget.className += " active";
 }
 
-function activescrbtn(evt, activeBtn) {
-    var i, btns;
+// function activescrbtn(evt, activeBtn) {
+//     var i, btns;
 
-    btns = document.getElementsByClassName("scr-btn");
-    for (i = 0; i < btns.length; i++) {
-        btns[i].className = btns[i].className.replace(" active", "");
-    }
+//     btns = document.getElementsByClassName("scr-btn");
+//     for (i = 0; i < btns.length; i++) {
+//         btns[i].className = btns[i].className.replace(" active", "");
+//     }
 
-    evt.currentTarget.className += " active";
-}
+//     evt.currentTarget.className += " active";
+// }
 
 function openNav() {
     document.getElementById("myNav").style.width = "265px";
@@ -73,26 +73,26 @@ function closeNav() {
     // document.getElementById("sidenav").children.style.display = "none"
 }
 
-function openCal() {
-    document.getElementById("myCal").style.display = "block";
-    document.getElementById("openIcon").style.display = "none";
-}
+// function openCal() {
+//     document.getElementById("myCal").style.display = "block";
+//     document.getElementById("openIcon").style.display = "none";
+// }
 
-function closeCal() {
-    document.getElementById("myCal").style.display = "none";
-    document.getElementById("openIcon").style.display = "inline-block";
-    txtResult = "";
-    txtExpression = "";
-    result.textContent = "0";
-    expression.textContent = "0";
-    memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
-    memoryItmId = 0;
-}
+// function closeCal() {
+//     document.getElementById("myCal").style.display = "none";
+//     document.getElementById("openIcon").style.display = "inline-block";
+//     txtResult = "";
+//     txtExpression = "";
+//     result.textContent = "0";
+//     expression.textContent = "0";
+//     memoryList.innerHTML = "<li>There's nothing saved in memory</li>";
+//     memoryItmId = 0;
+// }
 
-function minimizeCal() {
-    document.getElementById("myCal").style.display = "none";
-    document.getElementById("openIcon").style.display = "inline-block";
-}
+// function minimizeCal() {
+//     document.getElementById("myCal").style.display = "none";
+//     document.getElementById("openIcon").style.display = "inline-block";
+// }
 
 function valueBtnHandler(value, type) {
 

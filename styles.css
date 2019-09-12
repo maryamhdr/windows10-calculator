@@ -17,7 +17,7 @@ body {
     box-sizing: border-box
 }
 
-.cal-icon {
+/* .cal-icon {
     display: inline-block;
     font-size: 18px;
     color: gray;
@@ -34,13 +34,12 @@ body {
 .cal-icon:hover .tooltipcal {
     display: block;
     top: 50px
-}
+} */
 
 .calculator {
     width: 325px;
     min-height: 500px;
     height: 100%;
-    display: none;
     background-color: var(--main-bg-color);
     border: 1px solid var(--border-color);
     box-shadow: 2px 2px 15px #bfbfbf, -2px 0 20px #bfbfbf
@@ -287,7 +286,7 @@ body {
 }
 
 [class*="col-"] {
-    width: 16.66%;
+    width: 20%;
     height: 100%;
     box-sizing: border-box
 }
@@ -333,15 +332,8 @@ body {
     border: 1px solid var(--dark-hover-color)
 }
 
-.btn-item {
-    width: 100%;
-    background-color: transparent;
-    color: inherit;
-    border: none;
-    outline: none
-}
 
-button:disabled, button[disabled] {
+div:disabled, div[disabled] {
     color: #bfbfbf !important
 }
 
