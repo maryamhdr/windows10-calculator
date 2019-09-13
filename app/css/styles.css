@@ -304,10 +304,12 @@ body {
 
 .nav-foot i {
     padding: 10px 12px;
-    font-size: 14px
+    font-size: 14px;
+    margin-right: 8px
 }
 
 .nav-foot:hover {
+    cursor: default;
     background-color: var(--normal-hover-color)
 }
 
@@ -319,23 +321,28 @@ body {
 }
 
 .nav-body h3 {
-    padding: 10px 12px;
+    padding: 16px 48px;
+    padding-right: 0;
     font-size: 14px;
     margin: 0
 }
 
-.nav-item i {
-    padding: 10px 12px;
-    margin-right: 5px
+.nav-item {
+    padding: 16px 48px;
+    padding-right: 0
 }
 
 .nav-item:hover {
+    cursor: default;
     background-color: var(--normal-hover-color)
 }
 
 .active-item {
-    background-color: var(--normal-hover-color);
-    border-left: 4px solid var(--dark-hover-color)
+    background-color: rgb(182, 168, 155)
+}
+
+.active-item:hover {
+    background-color: rgb(182, 168, 155) !important
 }
 
 .memory-tab {
