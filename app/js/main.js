@@ -74,7 +74,6 @@ function valueBtnHandler(value, type) {
             txtResult += value;
             result.textContent = txtResult;
             lastResult = parseFloat(txtResult);
-            // console.log(lastResult);
             break;
         case 'symbol':
             if (value === "±") {
@@ -102,7 +101,6 @@ function valueBtnHandler(value, type) {
                     lastOperator = "*";
                     break;
             }
-            // console.log(lastResult);
 
             if (expression.textContent === "0") {
                 expression.textContent = "";
@@ -112,7 +110,6 @@ function valueBtnHandler(value, type) {
             txtExpression = txtExpression.replace("÷", "/");
             txtExpression = txtExpression.replace("×", "*");
             lastResult = eval(txtExpression);
-            // console.log(lastResult);
             txtExpression = lastResult + value;
 
             result.textContent = lastResult;
@@ -284,7 +281,7 @@ function storeInMemory() {
 }
 
 function deleteMemoryItem() {
-    // console.log(this.parentNode.parentNode.getAttribute("id"))
+    
     var id1 = this.parentNode.parentNode.getAttribute("id");
     var id2 = id1.replace("item1_", "item2_");
 
