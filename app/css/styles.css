@@ -94,7 +94,7 @@ body {
 }
 
 .left {
-    width: 325px
+    width: 100%
 }
 
 .side-bar {
@@ -196,13 +196,13 @@ body {
     box-sizing: border-box
 }
 
-[class*="col-"] {
-    width: 20%;
+.col {
+    flex: 1;
     height: 100%;
     box-sizing: border-box
 }
 
-[class*="col-"] .btn {
+.col .btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -213,31 +213,31 @@ body {
     font-size: 12px
 }
 
-[class*="col-"] .white-btn {
+.col .white-btn {
     background-color: #fff;
     font-weight: bold
 }
 
-[class*="col-"] .white-btn-hover:hover {
+.col .white-btn-hover:hover {
     background-color: var(--light-hover-color);
     border: 2px solid rgba(125, 125, 125, 0.3)
 }
 
-[class*="col-"] .dark-btn {
+.col .dark-btn {
     background-color: var(--btn-bg-color)
 }
 
-[class*="col-"] .dark-btn-hover:hover {
+.col .dark-btn-hover:hover {
     background-color: var(--light-hover-color);
     border: 2px solid rgba(125, 125, 125, 0.3)
 }
 
-[class*="col-"] .opr-btn {
+.col .opr-btn {
     background-color: var(--btn-bg-color);
     font-size: 14px
 }
 
-[class*="col-"] .opr-btn-hover:hover {
+.col .opr-btn-hover:hover {
     color: #fff;
     background-color: var(--dark-hover-color);
     border: 1px solid var(--dark-hover-color)
