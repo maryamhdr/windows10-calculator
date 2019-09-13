@@ -1,7 +1,7 @@
 :root {
     --main-bg-color: rgba(236, 236, 236, 0.9);
     --border-color: #515c6b;
-    --dark-hover-color: #7d7d7d;
+    --dark-hover-color: #8d8d8d;
     --normal-hover-color: #d8d8d8;
     --light-hover-color: #dcdcdc;
     --btn-bg-color: #f2f2f2
@@ -148,7 +148,7 @@ body {
 }
 
 .memory-btn {
-    /* width: 16.66%; */
+    width: 16.66%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -156,6 +156,12 @@ body {
     float: left;
     background-color: transparent;
     position: relative
+}
+
+.memory-btn:hover {
+    cursor: default;
+    background-color: var(--light-hover-color);
+    border: 2px solid var(--btn-bg-color) !important
 }
 
 .memory-btn:last-child {
@@ -169,7 +175,7 @@ body {
 
 .memory-btn:hover > div {
     display: block;
-    top: -40px !important
+    top: -20px !important
 }
 
 .memory-btn:last-child:hover > div {
@@ -196,10 +202,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 18.3%;
+    height: 17.5%;
     box-sizing: border-box;
     background-color: var(--btn-bg-color);
-    margin: 2px 1px;
+    margin: 4px 2px;
     font-size: 12px
 }
 
@@ -209,8 +215,11 @@ body {
 }
 
 .col .white-btn-hover:hover {
-    background-color: var(--light-hover-color);
-    border: 2px solid rgba(125, 125, 125, 0.3)
+    background-color: var(--light-hover-color)
+}
+
+.col .white-btn:active {
+    background-color: var(--dark-hover-color)
 }
 
 .col .dark-btn {
@@ -218,8 +227,11 @@ body {
 }
 
 .col .dark-btn-hover:hover {
-    background-color: var(--light-hover-color);
-    border: 2px solid rgba(125, 125, 125, 0.3)
+    background-color: var(--light-hover-color)
+}
+
+.col .dark-btn:active {
+    background-color: var(--dark-hover-color)
 }
 
 .col .opr-btn {
@@ -229,8 +241,7 @@ body {
 
 .col .opr-btn-hover:hover {
     color: #fff;
-    background-color: var(--dark-hover-color);
-    border: 1px solid var(--dark-hover-color)
+    background-color: rgb(182, 168, 155)
 }
 
 .top-row-btn {
@@ -472,12 +483,26 @@ body {
         width: 325px
     }
 
-    .btn4 {
+    .memory-btn:last-child {
         display: none
     }
 
-    .btn3 {
-        position: absolute !important;
-        right: 0
+    .memory-btn {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 712px) {
+    .memory-screen {
+        display: block;
+        width: 325px
+    }
+
+    .memory-btn:last-child {
+        display: none
+    }
+
+    .memory-btn {
+        width: 90px;
     }
 }
