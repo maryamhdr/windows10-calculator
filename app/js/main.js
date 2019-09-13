@@ -19,6 +19,7 @@ window.onclick = function (event) {
 }
 
 function resizeWindow() {
+    
     if(window.outerWidth > 560){
         let i, tabcontent, tablinks;
     
