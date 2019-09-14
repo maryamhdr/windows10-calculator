@@ -267,14 +267,16 @@ function storeInMemory() {
     savedValueControls2.appendChild(btnIncrement2);
     savedValueControls2.appendChild(btnDecrement2);
 
+    var lastChild1 = memoryList1.firstChild;
+    var lastChild2 = memoryList2.firstChild;
 
     listItem1.appendChild(savedValue1);
     listItem1.appendChild(savedValueControls1);
-    memoryList1.appendChild(listItem1);
+    memoryList1.insertBefore(listItem1, lastChild1);
 
     listItem2.appendChild(savedValue2);
     listItem2.appendChild(savedValueControls2);
-    memoryList2.appendChild(listItem2);
+    memoryList2.insertBefore(listItem2, lastChild2);
 
 
     listItem1.setAttribute("id", id1);
@@ -359,4 +361,8 @@ function trashFunct() {
     trashIcon2.style.display = "none";
     
     memoryItmId = 0;
+}
+
+function memoryRecall() {
+    // memoryList1.
 }
