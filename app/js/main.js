@@ -318,14 +318,13 @@ function incremetMemoryItem() {
     var element1 = document.getElementById(id1).childNodes[0];
     var element2 = document.getElementById(id2).childNodes[0];
 
-    var value1 = parseFloat(document.getElementById(id1).getAttribute("value"));
-    var value2 = parseFloat(document.getElementById(id2).getAttribute("value"));
+    var value = parseFloat(result.textContent);
 
     var result1 = parseFloat(element1.textContent);
     var result2 = parseFloat(element2.textContent);
 
-    result1 += value1;
-    result2 += value2;
+    result1 += value;
+    result2 += value;
 
     element1.textContent = result1;
     element2.textContent = result2;
@@ -339,14 +338,13 @@ function decrementMemoryItem() {
     var element1 = document.getElementById(id1).childNodes[0];
     var element2 = document.getElementById(id2).childNodes[0];
 
-    var value1 = parseFloat(document.getElementById(id1).getAttribute("value"));
-    var value2 = parseFloat(document.getElementById(id2).getAttribute("value"));
+    var value = parseFloat(result.textContent);
 
     var result1 = parseFloat(element1.textContent);
     var result2 = parseFloat(element2.textContent);
 
-    result1 -= value1;
-    result2 -= value2;
+    result1 -= value;
+    result2 -= value;
 
     element1.textContent = result1;
     element2.textContent = result2;
@@ -364,5 +362,47 @@ function trashFunct() {
 }
 
 function memoryRecall() {
-    // memoryList1.
+    var id = memoryList1.firstChild.getAttribute('id');
+    txtResult = document.getElementById(id).childNodes[0].textContent;
+    result.textContent = txtResult;
+}
+
+function memoryAdd() {
+
+    var id1 = memoryList1.firstChild.getAttribute('id');
+    var id2 = memoryList2.firstChild.getAttribute('id');
+
+    var element1 = document.getElementById(id1).childNodes[0];
+    var element2 = document.getElementById(id2).childNodes[0];
+
+    var value = parseFloat(result.textContent);
+
+    var result1 = parseFloat(element1.textContent);
+    var result2 = parseFloat(element2.textContent);
+
+    result1 += value;
+    result2 += value;
+
+    element1.textContent = result1;
+    element2.textContent = result2;
+}
+
+function memorySub() {
+
+    var id1 = memoryList1.firstChild.getAttribute('id');
+    var id2 = memoryList2.firstChild.getAttribute('id');
+
+    var element1 = document.getElementById(id1).childNodes[0];
+    var element2 = document.getElementById(id2).childNodes[0];
+
+    var value = parseFloat(result.textContent);
+
+    var result1 = parseFloat(element1.textContent);
+    var result2 = parseFloat(element2.textContent);
+
+    result1 -= value;
+    result2 -= value;
+
+    element1.textContent = result1;
+    element2.textContent = result2;
 }
