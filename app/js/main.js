@@ -15,30 +15,23 @@ var lastOperator = "+";
 
 var memoryItmId = 0;
 
+document.getElementById('memory').addEventListener('click', function (event){
+    event.stopPropagation();
+})
+
 window.onclick = function (event) {
     document.getElementById("myNav").style.width = "0";
+    document.getElementById('memory').style.display = "none";
+    document.getElementById('keypad').style.display = "flex";
 }
 
 function resizeWindow() {
-    
-    if(window.outerWidth > 560){
-        let i, tabcontent, tablinks;
-    
-        tabcontent = document.getElementsByClassName("main-btn-container");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-    
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-    
-        document.getElementById("keypad").style.display = "flex";
-        
-    }
 
-    hello();
+    if (window.outerWidth > 712) {
+        
+        document.getElementById('keypad').style.display = "flex";
+        document.getElementById('memory').style.display = "none";
+    }
 }
 
 function openNav(event) {
@@ -67,14 +60,14 @@ function valueBtnHandler(value, type) {
     switch (type) {
         case 'number':
 
-            if(value === "." && txtResult.includes(".")){
+            if (value === "." && txtResult.includes(".")) {
                 return;
             }
 
-            if(value === "." && txtResult === ""){
+            if (value === "." && txtResult === "") {
                 txtResult = "0";
             }
-        
+
             txtResult += value;
             result.textContent = txtResult;
             lastResult = parseFloat(txtResult);
@@ -151,7 +144,7 @@ function calculateResult() {
         return;
 
     }
-    
+
     txtExpression = txtExpression.replace("÷", "/");
     txtExpression = txtExpression.replace("×", "*");
     result.textContent = eval(txtExpression);
@@ -196,10 +189,15 @@ function backspaceResult() {
 function storeInMemory() {
 
     if (memoryItmId === 0) {
+
         memoryList1.innerHTML = "";
         trashIcon1.style.display = "flex";
         memoryList2.innerHTML = "";
         trashIcon2.style.display = "flex";
+
+        document.getElementById('mcBtn').className = document.getElementById('mcBtn').className.replace(" disabled", "");
+        document.getElementById('mrBtn').className = document.getElementById('mrBtn').className.replace(" disabled", "");
+        document.getElementById('mBtn').className = document.getElementById('mBtn').className.replace(" disabled", "");
     }
 
     var id1 = "item1_" + memoryItmId;
@@ -287,7 +285,7 @@ function storeInMemory() {
 }
 
 function deleteMemoryItem() {
-    
+
     var id1 = this.parentNode.parentNode.getAttribute("id");
     var id2 = id1.replace("item1_", "item2_");
 
@@ -301,12 +299,21 @@ function deleteMemoryItem() {
         memoryList1.innerHTML = "<li>There's nothing saved in memory</li>";
         trashIcon1.style.display = "none";
         memoryItmId = 0;
+
+        document.getElementById('mcBtn').className += " disabled";
+        document.getElementById('mrBtn').className += " disabled";
+        document.getElementById('mBtn').className += " disabled";
+
     }
 
     if (!memoryList2.hasChildNodes()) {
         memoryList2.innerHTML = "<li>There's nothing saved in memory</li>";
         trashIcon2.style.display = "none";
         memoryItmId = 0;
+
+        document.getElementById('mcBtn').className += " disabled";
+        document.getElementById('mrBtn').className += " disabled";
+        document.getElementById('mBtn').className += " disabled";
     }
 }
 
@@ -353,12 +360,16 @@ function decrementMemoryItem() {
 function trashFunct() {
 
     memoryList1.innerHTML = "<li>There's nothing saved in memory</li>";
-    memoryList2.innerHTML = "<li>There's nothing saved in memory</li>";
-    
+    memoryList2.innerHTML = "<li style='margin-top: 12px'>There's nothing saved in memory</li>";
+
     trashIcon1.style.display = "none";
     trashIcon2.style.display = "none";
-    
+
     memoryItmId = 0;
+
+    document.getElementById('mcBtn').className += " disabled";
+    document.getElementById('mrBtn').className += " disabled";
+    document.getElementById('mBtn').className += " disabled";
 }
 
 function memoryRecall() {
@@ -405,4 +416,10 @@ function memorySub() {
 
     element1.textContent = result1;
     element2.textContent = result2;
+}
+
+function openMemory(evt) {
+    evt.stopPropagation();
+    document.getElementById('memory').style.display = "flex";
+    document.getElementById('keypad').style.display = "none";
 }

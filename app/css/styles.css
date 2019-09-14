@@ -387,13 +387,14 @@ body {
 
 .memory-tab {
     width: 100%;
-    height: 62%;
+    height: 71%;
     display: none;
     flex-direction: column !important;
     padding: 0;
     font-size: 14px;
     font-weight: bold;
     position: relative;
+    background-color: #f4f4f4 !important
 }
 
 .memory-tab-body {
@@ -447,6 +448,20 @@ body {
 }
 
 .memory-foot #trashIcon1:hover {
+   cursor: default;
+   border: 2px solid var(--btn-bg-color) 
+}
+
+.memory-foot #trashIcon2 {
+    display: none;
+    width: 43px;
+    height: 43px;
+    margin: 0;
+    justify-content: center;
+    align-items: center
+}
+
+.memory-foot #trashIcon2:hover {
    cursor: default;
    border: 2px solid var(--btn-bg-color) 
 }
@@ -518,6 +533,11 @@ body {
 
 .control-btn:hover {
     border: 2px solid var(--main-bg-color)
+}
+
+.disabled {
+    pointer-events: none;
+    color: var(--dark-hover-color)
 }
 
 @media screen and (min-width: 516px) {
