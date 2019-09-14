@@ -1,5 +1,6 @@
 "usestrict";
 
+
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
 var memoryList1 = document.getElementById("memoryList1");
@@ -36,6 +37,8 @@ function resizeWindow() {
         document.getElementById("keypad").style.display = "flex";
         
     }
+
+    hello();
 }
 
 function openNav(event) {
