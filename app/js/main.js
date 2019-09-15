@@ -150,6 +150,7 @@ function calculateResult() {
     result.textContent = eval(txtExpression);
     expression.textContent += txtResult + " =";
 
+    expression.textContent = "0";
     txtResult = "";
     txtExpression = "";
 
