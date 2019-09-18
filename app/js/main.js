@@ -78,14 +78,14 @@ function valueBtnHandler(value, type) {
         case 'symbol':
 
             if (value === "±") {
-                if (txtResult.includes("-")) {
-                    txtResult = txtResult.replace("-", "");
+                if (result.textContent.includes("-")) {
+                    txtResult = result.textContent.replace("-", "");
                     txtResult = txtResult.replace("(", "");
                     txtResult = txtResult.replace(")", "");
                     result.textContent = txtResult;
                     return;
                 }
-                txtResult = "(-" + txtResult + ")";
+                txtResult = "(-" + result.textContent + ")";
                 result.textContent = txtResult;
                 return;
             }
@@ -184,13 +184,6 @@ function calculateResult() {
 
         txtResult = "";
         txtExpression = "";
-        return;
-    }
-
-    if (txtExpression.includes('√')) {
-        txtResult = "";
-        txtExpression = "";
-        expression.textContent = "0";
         return;
     }
 
