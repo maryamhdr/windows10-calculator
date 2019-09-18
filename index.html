@@ -150,13 +150,14 @@
                         <div class="col left-col">
                             <div class="btn dark-btn dark-btn-hover">%</div>
 
-                            <div class="btn dark-btn dark-btn-hover" onclick="valueBtnHandler(this.textContent, 'symbol')">&radic;</div>
-
                             <div class="btn dark-btn dark-btn-hover"
-                                onclick="valueBtnHandler(this.textContent, 'number')">x<sup>2</sup></div>
+                                onclick="valueBtnHandler(this.textContent, 'symbol')">&radic;</div>
 
-                            <div class="btn dark-btn dark-btn-hover"
-                                onclick="valueBtnHandler(this.textContent, 'number')">x<sup>3</sup></div>
+                            <div class="btn dark-btn dark-btn-hover" onclick="valueBtnHandler('sqr', 'symbol')">
+                                x<sup>2</sup></div>
+
+                            <div class="btn dark-btn dark-btn-hover" onclick="valueBtnHandler('cube', 'symbol')">
+                                x<sup>3</sup></div>
 
                             <div class="btn dark-btn dark-btn-hover"
                                 onclick="valueBtnHandler(this.textContent, 'number')"><sup>1</sup>/x</div>
@@ -183,7 +184,8 @@
                         </div>
 
                         <div class="col">
-                            <div class="btn dark-btn dark-btn-hover top-row-btn" onclick="valueBtnHandler(this.textContent, 'symbol')">&radic;</div>
+                            <div class="btn dark-btn dark-btn-hover top-row-btn"
+                                onclick="valueBtnHandler(this.textContent, 'symbol')">&radic;</div>
 
                             <div class="btn dark-btn dark-btn-hover" onclick="clearAllInput()">C</div>
 
@@ -201,7 +203,8 @@
                         </div>
 
                         <div class="col">
-                            <div class="btn dark-btn top-row-btn dark-btn-hover">x<sup>2</sup></div>
+                            <div class="btn dark-btn top-row-btn dark-btn-hover"
+                                onclick="valueBtnHandler('sqr', 'symbol')">x<sup>2</sup></div>
 
                             <div class="btn dark-btn dark-btn-hover" onclick="backspaceResult()"><img
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAQAAABIkb+zAAAAAmJLR0QA/4ePzL8AAAFgSURBVHja7ZpBcsMgDAB1svNnP6qdHDL5HT300OkktiwhwCi7uYJGCw5GGBEAAAAAAAAA+FgWuUvp9Js8/TJ7+mX29Mvs6YcKrPLonn5pOfpPuTVa5RoI9Ey/gUDf9MMFeqcfLNA//VCBEekHCoxJP0xgVPpBAq+vrYesivCmtFhlk6WPgH30F/lWWv3G1IYhRMCb/lHLv5i6QqVATfp7rf/H1BSqBOzPvsim9HiNubUS8K08x73sMd0C/oVzv6cnplOgbt1/39sX0yXgefb1CL6YDoGYt65Wcp6NaRaoH/0zZef5mEaB2D3P3ixYYpoE4kb/aBZsMU0C8XvOd3Ngi/lZj1CCP3GCZTTBiyzBViLBZi7BdjpBQeMtKb+uU1LWKlygqK9RuMixSoKDrQRHiwkOdxMcr49S4BPTaAU+s45W4KqBt2Sc4LpN/1kIZ/ILT/0VZHYFAAAAAAAAAMjCDxjcNMXjatTtAAAAAElFTkSuQmCC"
