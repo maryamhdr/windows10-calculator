@@ -1,6 +1,6 @@
 "usestrict";
 
-hello();
+// hello();
 
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
@@ -13,6 +13,7 @@ var txtResult = "";
 var txtExpression = "";
 var lastResult = 0;
 var lastOperator = "+";
+var sqrtAcc = 0;
 
 var memoryItmId = 0;
 
@@ -47,15 +48,16 @@ function closeNav() {
 function valueBtnHandler(value, type) {
 
     if (txtResult === "") {
-        if (type === 'symbol') {
+        if (txtExpression === "" && value === "0")
             return;
-        }
-        if (txtExpression === "") {
-            if (value === "0") {
+    }
+
+    if (txtResult === "") {
+        if (txtExpression === "" && type === 'symbol') {
+            if (value !== "√") {
                 return;
             }
         }
-
     }
 
     switch (type) {
@@ -89,14 +91,30 @@ function valueBtnHandler(value, type) {
             }
 
             if (value === "√") {
+                if (result.textContent.includes("-")) {
+                    txtResult = "";
+                    txtExpression = "";
+                    result.textContent = "Invalid input";
+                    expression.textContent = "";
+                    return;
+                }
 
-                txtExpression.includes('√') ? txtExpression = "√(" + txtExpression + ")" : txtExpression = "√(" + result.textContent + ")";
-                const num = result.textContent;
-                expression.textContent = txtExpression;
-                txtResult = Math.sqrt(num).toString();
-                result.textContent = txtResult;
+                sqrtAcc = (txtResult.match(/√/g) || []).length + 1;
+
+                txtResult = txtResult.includes("√") ? "√(" + txtResult + ")" : "√(" + result.textContent + ")";
+                result.textContent = eval(txtResult.replace(/√/g, "Math.sqrt"));
+
+                if (sqrtAcc === 1) {
+                    expression.textContent += txtResult + " ";
+                    return;
+                }
+
+                if (expression.textContent.includes("√")) {
+                    expression.textContent = expression.textContent.substr(0, expression.textContent.lastIndexOf("√") - 2 * (sqrtAcc - 2));
+                }
+
+                expression.textContent += txtResult + " ";
                 return;
-
             }
 
             switch (value) {
@@ -112,18 +130,30 @@ function valueBtnHandler(value, type) {
                     break;
             }
 
-            if (expression.textContent === "0") {
-                expression.textContent = "";
+            txtExpression += txtResult;
+
+            if (txtExpression.charAt(txtExpression.length - 1) === "+" ||
+                txtExpression.charAt(txtExpression.length - 1) === "-" ||
+                txtExpression.charAt(txtExpression.length - 1) === "÷" ||
+                txtExpression.charAt(txtExpression.length - 1) === "×") {
+
+                txtExpression = txtExpression.substr(0, txtExpression.length - 1);
+                txtExpression += value;
+                expression.textContent = expression.textContent.substr(0, expression.textContent.length - 2);
+                expression.textContent += value + " ";
+                return;
             }
 
-            txtExpression += txtResult;
+
             txtExpression = txtExpression.replace("÷", "/");
             txtExpression = txtExpression.replace("×", "*");
+            txtExpression = txtExpression.replace(/√/g, "Math.sqrt");
             lastResult = eval(txtExpression);
             txtExpression = lastResult + value;
 
             result.textContent = lastResult;
-            expression.textContent += txtResult + " " + value + " ";
+            txtResult.includes("√") ? expression.textContent += value : expression.textContent += txtResult + " " + value + " ";
+
 
             txtResult = "";
             break;
@@ -139,7 +169,7 @@ function calculateResult() {
 
         let recursiveResult = parseFloat(result.textContent);
         result.textContent = eval(recursiveResult + lastOperator + lastResult);
-        expression.textContent = "0";
+        expression.textContent = "";
         return;
     }
 
@@ -157,7 +187,7 @@ function calculateResult() {
         return;
     }
 
-    if(txtExpression.includes('√')) {
+    if (txtExpression.includes('√')) {
         txtResult = "";
         txtExpression = "";
         expression.textContent = "0";
@@ -169,7 +199,7 @@ function calculateResult() {
     result.textContent = eval(txtExpression);
     expression.textContent += txtResult + " =";
 
-    expression.textContent = "0";
+    expression.textContent = "";
     txtResult = "";
     txtExpression = "";
 
@@ -179,7 +209,7 @@ function clearAllInput() {
     txtResult = "";
     txtExpression = "";
     result.textContent = "0";
-    expression.textContent = "0";
+    expression.textContent = "";
 }
 
 function clearResult() {
