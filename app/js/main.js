@@ -1,5 +1,6 @@
 "usestrict";
 
+hello();
 
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
@@ -15,7 +16,7 @@ var lastOperator = "+";
 
 var memoryItmId = 0;
 
-document.getElementById('memory').addEventListener('click', function (event){
+document.getElementById('memory').addEventListener('click', function (event) {
     event.stopPropagation();
 })
 
@@ -28,7 +29,7 @@ window.onclick = function (event) {
 function resizeWindow() {
 
     if (window.outerWidth > 712) {
-        
+
         document.getElementById('keypad').style.display = "flex";
         document.getElementById('memory').style.display = "none";
     }
@@ -73,6 +74,7 @@ function valueBtnHandler(value, type) {
             lastResult = parseFloat(txtResult);
             break;
         case 'symbol':
+
             if (value === "±") {
                 if (txtResult.includes("-")) {
                     txtResult = txtResult.replace("-", "");
@@ -84,6 +86,17 @@ function valueBtnHandler(value, type) {
                 txtResult = "(-" + txtResult + ")";
                 result.textContent = txtResult;
                 return;
+            }
+
+            if (value === "√") {
+
+                txtExpression.includes('√') ? txtExpression = "√(" + txtExpression + ")" : txtExpression = "√(" + result.textContent + ")";
+                const num = result.textContent;
+                expression.textContent = txtExpression;
+                txtResult = Math.sqrt(num).toString();
+                result.textContent = txtResult;
+                return;
+
             }
 
             switch (value) {

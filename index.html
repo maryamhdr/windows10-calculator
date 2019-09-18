@@ -9,6 +9,8 @@
     <script src="https://kit.fontawesome.com/fc788d89ec.js"></script>
     <link rel="stylesheet" type="text/css" href="app/css/styles.css" />
     <title>Calculator</title>
+
+    <script src="app/js/test.js"></script>
 </head>
 
 <body onresize="resizeWindow()">
@@ -148,7 +150,7 @@
                         <div class="col left-col">
                             <div class="btn dark-btn dark-btn-hover">%</div>
 
-                            <div class="btn dark-btn dark-btn-hover" onclick="clearResult()">&radic;</div>
+                            <div class="btn dark-btn dark-btn-hover" onclick="valueBtnHandler(this.textContent, 'symbol')">&radic;</div>
 
                             <div class="btn dark-btn dark-btn-hover"
                                 onclick="valueBtnHandler(this.textContent, 'number')">x<sup>2</sup></div>
@@ -181,7 +183,7 @@
                         </div>
 
                         <div class="col">
-                            <div class="btn dark-btn dark-btn-hover top-row-btn">&radic;</div>
+                            <div class="btn dark-btn dark-btn-hover top-row-btn" onclick="valueBtnHandler(this.textContent, 'symbol')">&radic;</div>
 
                             <div class="btn dark-btn dark-btn-hover" onclick="clearAllInput()">C</div>
 
