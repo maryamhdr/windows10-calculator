@@ -155,7 +155,13 @@ function calculateResult() {
         txtResult = "";
         txtExpression = "";
         return;
+    }
 
+    if(txtExpression.includes('√')) {
+        txtResult = "";
+        txtExpression = "";
+        expression.textContent = "0";
+        return;
     }
 
     txtExpression = txtExpression.replace("÷", "/");
