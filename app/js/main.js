@@ -20,6 +20,7 @@ var divideAcc = 0;
 var recalled = false;
 
 var memoryItmId = 0;
+var historyItemId = 0;
 
 document.getElementById('memory').addEventListener('click', function (event) {
     event.stopPropagation();
@@ -28,6 +29,7 @@ document.getElementById('memory').addEventListener('click', function (event) {
 window.onclick = function (event) {
     document.getElementById("myNav").style.width = "0";
     document.getElementById('memory').style.display = "none";
+    document.getElementById('history').style.display = "none";
     document.getElementById('keypad').style.display = "flex";
 }
 
@@ -67,10 +69,10 @@ function valueBtnHandler(value, type) {
     switch (type) {
         case 'number':
 
-        if(recalled){
-            txtResult = "";
-            recalled = false;
-        }
+            if (recalled) {
+                txtResult = "";
+                recalled = false;
+            }
 
             if (value === "." && txtResult.includes(".")) {
                 return;
@@ -170,7 +172,7 @@ function valueBtnHandler(value, type) {
             }
 
             if (value === "reverse") {
-                
+
                 if (result.textContent === "0") {
                     console.log("HEYYYYYYYYYY")
                     txtResult = "";
@@ -180,7 +182,7 @@ function valueBtnHandler(value, type) {
                     return;
                 }
 
-                
+
 
                 divideAcc = (txtResult.match(/\//g) || []).length + 1;
 
@@ -198,7 +200,7 @@ function valueBtnHandler(value, type) {
 
                 expression.textContent += txtResult + " ";
                 return;
-                
+
             }
 
             switch (value) {
@@ -214,12 +216,12 @@ function valueBtnHandler(value, type) {
                     break;
             }
 
-            if(txtResult.includes('sqr')) {
+            if (txtResult.includes('sqr')) {
                 txtResult = txtResult.replace(/\)/g, ",2)");
                 txtResult = txtResult.replace(/sqr/g, 'Math.pow');
             }
 
-            if(txtResult.includes('cube')) {
+            if (txtResult.includes('cube')) {
                 txtResult = txtResult.replace(/\)/g, ",3)");
                 txtResult = txtResult.replace(/cube/g, 'Math.pow');
             }
@@ -280,12 +282,12 @@ function calculateResult() {
         return;
     }
 
-    if(txtExpression.includes('sqr')) {
+    if (txtExpression.includes('sqr')) {
         txtExpression = txtExpression.replace(/\)/g, ",2)");
         txtExpression = txtExpression.replace(/sqr/g, 'Math.pow');
     }
 
-    if(txtExpression.includes('cube')) {
+    if (txtExpression.includes('cube')) {
         txtExpression = txtExpression.replace(/\)/g, ",3)");
         txtExpression = txtExpression.replace(/cube/g, 'Math.pow');
     }
@@ -504,7 +506,7 @@ function decrementMemoryItem() {
     element2.textContent = result2;
 }
 
-function trashFunct() {
+function memoryTrashFunct() {
 
     memoryList1.innerHTML = "<li>There's nothing saved in memory</li>";
     memoryList2.innerHTML = "<li style='margin-top: 12px'>There's nothing saved in memory</li>";
@@ -528,6 +530,11 @@ function memoryRecall() {
 
 function memoryAdd() {
 
+    if (memoryItmId === 0) {
+        storeInMemory();
+        return;
+    }
+
     var id1 = memoryList1.firstChild.getAttribute('id');
     var id2 = memoryList2.firstChild.getAttribute('id');
 
@@ -547,6 +554,11 @@ function memoryAdd() {
 }
 
 function memorySub() {
+
+    if (memoryItmId === 0) {
+        storeInMemory();
+        return;
+    }
 
     var id1 = memoryList1.firstChild.getAttribute('id');
     var id2 = memoryList2.firstChild.getAttribute('id');
@@ -570,4 +582,30 @@ function openMemory(evt) {
     evt.stopPropagation();
     document.getElementById('memory').style.display = "flex";
     document.getElementById('keypad').style.display = "none";
+    document.getElementById('history').style.display = "none";
+}
+
+function openHistory(evt) {
+    evt.stopPropagation();
+    document.getElementById('memory').style.display = "none";
+    document.getElementById('keypad').style.display = "none";
+    document.getElementById('history').style.display = "flex";
+}
+
+function changeScreenMode(evt, mode) {
+    var tabs = document.getElementsByClassName("memory-tablink");
+    switch (mode) {
+        case 'history':
+            document.getElementById('memoryScreen').style.display = "none";
+            document.getElementById('historyScreen').style.display = "block";
+            tabs[1].className = tabs[1].className.replace(" active-memorytab-item", "");
+            evt.currentTarget.className += " active-memorytab-item";
+            break;
+        case 'memory':
+            document.getElementById('historyScreen').style.display = "none";
+            document.getElementById('memoryScreen').style.display = "block";
+            tabs[0].className = tabs[0].className.replace(" active-memorytab-item", "");
+            evt.currentTarget.className += " active-memorytab-item";
+            break;
+    }
 }

@@ -113,7 +113,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: var(--main-bg-color)
+    background-color: var(--main-bg-color);
+    position: relative;
 }
 
 .nav-icon {
@@ -143,6 +144,27 @@ body {
     justify-content: center;
     font-size: 22px;
     font-weight: 400
+}
+
+.history-icon-wrapper {
+    height: 100%;
+    padding: 10px 12px;
+    position: absolute;
+    right: 0
+}
+
+.history-icon-wrapper img {
+    width: 24px;
+    height: 100%
+}
+
+.history-icon-wrapper:hover {
+    background-color: var(--normal-hover-color)
+}
+
+.history-icon-wrapper:hover > div {
+    display: inline-block;
+    right: 30px
 }
 
 .var-body {
@@ -440,7 +462,8 @@ body {
     height: 43px;
     font-size: 15px;
     font-weight: 600;
-    padding-left: 16px
+    padding-left: 16px;
+    margin-bottom: 16px
 }
 
 .memory-foot {
@@ -457,7 +480,7 @@ body {
     padding: 2px
 }
 
-.memory-foot #trashIcon1 {
+.trash-icon {
     display: none;
     width: 43px;
     height: 43px;
@@ -466,21 +489,7 @@ body {
     align-items: center
 }
 
-.memory-foot #trashIcon1:hover {
-    cursor: default;
-    border: 2px solid var(--btn-bg-color)
-}
-
-.memory-foot #trashIcon2 {
-    display: none;
-    width: 43px;
-    height: 43px;
-    margin: 0;
-    justify-content: center;
-    align-items: center
-}
-
-.memory-foot #trashIcon2:hover {
+.trash-icon:hover {
     cursor: default;
     border: 2px solid var(--btn-bg-color)
 }
@@ -488,8 +497,8 @@ body {
 .memory-body {
     overflow-y: auto;
     width: 100%;
-    min-height: 380px;
-    height: calc(100% - 88px);
+    min-height: 364px;
+    height: calc(100% - 104px);
     font-size: 15px;
     font-weight: 600
 }
@@ -559,6 +568,24 @@ body {
     color: var(--dark-hover-color)
 }
 
+.memory-tablink {
+    margin-right: 32px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent
+}
+
+.active-memorytab-item {
+    border-bottom: 2px solid rgb(182, 168, 155)
+}
+
+.screen-wrapper {
+    display: none
+}
+
+.active-screen {
+    display: block
+}
+
 @media screen and (min-width: 516px) {
     .calculator {
         width: 100%;
@@ -586,21 +613,19 @@ body {
     .memory-btn {
         width: 20%;
     }
-}
 
-@media screen and (min-width: 712px) {
-    .memory-screen {
-        display: block;
-        width: 325px
-    }
-
-    .memory-btn:last-child {
+    .history-icon-wrapper {
         display: none
     }
+}
+
+
+@media screen and (min-width: 712px) {
 
     .memory-btn {
         width: 90px;
     }
+
 }
 
 @media screen and (min-height: 650px) and (min-width: 1022px){
