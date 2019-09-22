@@ -7,6 +7,11 @@
     --btn-bg-color: #f2f2f2
 }
 
+@font-face {
+    font-family: lucidaCalligraphy;
+    src: url(../../fonts/Lucida\ Calligraphy\ Italic.ttf);
+}
+
 html,
 body {
     height: 100%;
@@ -15,6 +20,18 @@ body {
 
 * {
     box-sizing: border-box
+}
+
+.custom-font {
+    font-family: lucidaCalligraphy !important;
+    letter-spacing: 0
+}
+
+.up-position {
+    position: absolute;
+    bottom: 30px !important;
+    right: 70px;
+    font-size: 14px
 }
 
 .calculator {
@@ -195,12 +212,12 @@ body {
     border: 1px solid rgba(125, 125, 125, 0.3)
 }
 
-.memory-btn:hover > div {
+.memory-btn:hover>div {
     display: block;
     top: -20px !important
 }
 
-.memory-btn:last-child:hover > div {
+.memory-btn:last-child:hover>div {
     top: -20px !important;
     right: 20px !important;
 }
@@ -231,12 +248,13 @@ body {
     height: 17.5%;
     box-sizing: border-box;
     background-color: var(--btn-bg-color);
-    margin: 4px 2px
+    margin: 4px 2px;
+    position: relative
 }
 
-.col .btn:hover {
+/* .col .btn:hover {
     border: 2px solid var(--btn-bg-color)
-}
+} */
 
 .col .white-btn {
     background-color: #fff;
@@ -449,8 +467,8 @@ body {
 }
 
 .memory-foot #trashIcon1:hover {
-   cursor: default;
-   border: 2px solid var(--btn-bg-color) 
+    cursor: default;
+    border: 2px solid var(--btn-bg-color)
 }
 
 .memory-foot #trashIcon2 {
@@ -463,8 +481,8 @@ body {
 }
 
 .memory-foot #trashIcon2:hover {
-   cursor: default;
-   border: 2px solid var(--btn-bg-color) 
+    cursor: default;
+    border: 2px solid var(--btn-bg-color)
 }
 
 .memory-body {
@@ -585,7 +603,7 @@ body {
     }
 }
 
-@media screen and (min-height: 650px){
+@media screen and (min-height: 650px) and (min-width: 1022px){
     .left-col {
         display: block
     }

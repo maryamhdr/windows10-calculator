@@ -17,6 +17,7 @@ var sqrtAcc = 0;
 var sqrAcc = 0;
 var cubeAcc = 0;
 var divideAcc = 0;
+var recalled = false;
 
 var memoryItmId = 0;
 
@@ -66,6 +67,11 @@ function valueBtnHandler(value, type) {
     switch (type) {
         case 'number':
 
+        if(recalled){
+            txtResult = "";
+            recalled = false;
+        }
+
             if (value === "." && txtResult.includes(".")) {
                 return;
             }
@@ -83,12 +89,10 @@ function valueBtnHandler(value, type) {
             if (value === "±") {
                 if (result.textContent.includes("-")) {
                     txtResult = result.textContent.replace("-", "");
-                    txtResult = txtResult.replace("(", "");
-                    txtResult = txtResult.replace(")", "");
                     result.textContent = txtResult;
                     return;
                 }
-                txtResult = "(-" + result.textContent + ")";
+                txtResult = "-" + result.textContent;
                 result.textContent = txtResult;
                 return;
             }
@@ -519,6 +523,7 @@ function memoryRecall() {
     var id = memoryList1.firstChild.getAttribute('id');
     txtResult = document.getElementById(id).childNodes[0].textContent;
     result.textContent = txtResult;
+    recalled = true;
 }
 
 function memoryAdd() {
