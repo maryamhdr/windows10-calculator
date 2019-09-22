@@ -494,18 +494,23 @@ body {
     border: 2px solid var(--btn-bg-color)
 }
 
+.screen-wrapper {
+    display: none;
+    min-height: 425px;
+    height: calc(100% - 43px)
+}
+
 .memory-body {
     overflow-y: auto;
     width: 100%;
-    min-height: 364px;
-    height: calc(100% - 104px);
+    min-height: 380px;
+    height: calc(100% - 84px);
     font-size: 15px;
     font-weight: 600
 }
 
 .memory-list {
     width: 100%;
-    height: 100%;
     padding: 0;
     margin: 0;
     list-style-type: none
@@ -517,7 +522,40 @@ body {
 
 .memory-item {
     width: 100%;
-    height: 84px
+    height: 84px;
+    margin-bottom: 8px
+}
+
+.history-item {
+    width: 100%;
+    height: 64px;
+    margin-bottom: 24px
+}
+
+.history-item:hover {
+    background-color: var(--light-hover-color)
+}
+
+.history-item-expression {
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 18px;
+    color: var(--dark-hover-color);
+    font-size: 14px;
+    font-weight: 400
+}
+
+.history-item-result {
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 18px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #000
 }
 
 .memory-item:hover {
@@ -525,7 +563,7 @@ body {
 }
 
 .saved-value {
-    width: 1005;
+    width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -571,15 +609,12 @@ body {
 .memory-tablink {
     margin-right: 32px;
     padding-bottom: 5px;
-    border-bottom: 2px solid transparent
+    border-bottom: 3px solid transparent;
+    cursor: default
 }
 
 .active-memorytab-item {
-    border-bottom: 2px solid rgb(182, 168, 155)
-}
-
-.screen-wrapper {
-    display: none
+    border-bottom: 3px solid rgb(182, 168, 155)
 }
 
 .active-screen {

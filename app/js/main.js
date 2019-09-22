@@ -4,10 +4,16 @@
 
 var expression = document.getElementById("expression");
 var result = document.getElementById("result");
+
 var memoryList1 = document.getElementById("memoryList1");
 var memoryList2 = document.getElementById("memoryList2");
 var trashIcon1 = document.getElementById("trashIcon1");
 var trashIcon2 = document.getElementById("trashIcon2");
+
+var historyList1 = document.getElementById("historyList1");
+var historyList2 = document.getElementById("historyList2");
+var trashIcon3 = document.getElementById("trashIcon3");
+var trashIcon4 = document.getElementById("trashIcon4")
 
 var txtResult = "";
 var txtExpression = "";
@@ -26,6 +32,10 @@ document.getElementById('memory').addEventListener('click', function (event) {
     event.stopPropagation();
 })
 
+document.getElementById('history').addEventListener('click', function (event) {
+    event.stopPropagation();
+})
+
 window.onclick = function (event) {
     document.getElementById("myNav").style.width = "0";
     document.getElementById('memory').style.display = "none";
@@ -39,6 +49,7 @@ function resizeWindow() {
 
         document.getElementById('keypad').style.display = "flex";
         document.getElementById('memory').style.display = "none";
+        document.getElementById('history').style.display = "none";
     }
 }
 
@@ -248,7 +259,7 @@ function valueBtnHandler(value, type) {
             txtExpression = lastResult + value;
 
             result.textContent = lastResult;
-            txtResult.includes("√") || txtResult.includes("Math.pow") || txtResult.includes("/") ? expression.textContent += value : expression.textContent += txtResult + " " + value + " ";
+            txtResult.includes("√") || txtResult.includes("Math.pow") || txtResult.includes("/") ? expression.textContent += value + " " : expression.textContent += txtResult + " " + value + " ";
 
             txtResult = "";
             break;
@@ -262,9 +273,26 @@ function calculateResult() {
 
     if (txtExpression === "") {
 
+        let operator;
         let recursiveResult = parseFloat(result.textContent);
         result.textContent = eval(recursiveResult + lastOperator + lastResult);
+        switch (lastOperator) {
+            case "*":
+                operator = "×";
+                break;
+            case "/":
+                operator = "÷";
+                break;
+            case "+":
+            case "-":
+                operator = lastOperator;
+                break;
+        }
+
+        expression.textContent = recursiveResult + " " + operator + " " + lastResult;
+        addHistory();
         expression.textContent = "";
+
         return;
     }
 
@@ -273,9 +301,28 @@ function calculateResult() {
         txtExpression.charAt(txtExpression.length - 1) === "÷" ||
         txtExpression.charAt(txtExpression.length - 1) === "×") {
 
+        let operator;
         let recursiveResult = parseFloat(result.textContent);
 
         result.textContent = eval(recursiveResult + lastOperator + lastResult);
+        console.log(recursiveResult + lastOperator + lastResult)
+
+        switch (lastOperator) {
+            case "*":
+                operator = "×";
+                break;
+            case "/":
+                operator = "÷";
+                break;
+            case "+":
+            case "-":
+                operator = lastOperator;
+                break;
+        }
+
+        expression.textContent = recursiveResult + " " + operator + " " + lastResult;
+        addHistory();
+        expression.textContent = "";
 
         txtResult = "";
         txtExpression = "";
@@ -296,7 +343,9 @@ function calculateResult() {
     txtExpression = txtExpression.replace("×", "*");
     txtExpression = txtExpression.replace(/√/g, "Math.sqrt");
     result.textContent = eval(txtExpression);
-    expression.textContent += txtResult + " =";
+    expression.textContent += txtResult;
+
+    addHistory();
 
     expression.textContent = "";
     txtResult = "";
@@ -608,4 +657,88 @@ function changeScreenMode(evt, mode) {
             evt.currentTarget.className += " active-memorytab-item";
             break;
     }
+}
+
+function addHistory() {
+
+    if (historyItemId === 0) {
+
+        historyList1.innerHTML = "";
+        trashIcon3.style.display = "flex";
+        historyList2.innerHTML = "";
+        trashIcon4.style.display = "flex";
+
+        document.getElementById('historyIcon').className = document.getElementById('historyIcon').className.replace(" disabled", "");
+    }
+
+    var id1 = "hItem1_" + historyItemId;
+    var id2 = "hItem2_" + historyItemId;
+
+    var listItem1 = document.createElement("li");
+    var itemExpression1 = document.createElement("div");
+    var itemResult1 = document.createElement("div");
+
+    var listItem2 = document.createElement("li");
+    var itemExpression2 = document.createElement("div");
+    var itemResult2 = document.createElement("div");
+
+    listItem1.className = "history-item";
+    itemExpression1.className = "history-item-expression";
+    itemResult1.className = "history-item-result";
+
+    listItem2.className = "history-item";
+    itemExpression2.className = "history-item-expression";
+    itemResult2.className = "history-item-result";
+
+    itemExpression1.textContent = expression.textContent + " =";
+    itemResult1.textContent = result.textContent;
+
+    itemExpression2.textContent = expression.textContent + " =";
+    itemResult2.textContent = result.textContent;
+
+    listItem1.onclick = historyItemClick;
+    listItem2.onclick = historyItemClick;
+
+    var lastChild1 = historyList1.firstChild;
+    var lastChild2 = historyList2.firstChild;
+
+    listItem1.appendChild(itemExpression1);
+    listItem1.appendChild(itemResult1);
+    historyList1.insertBefore(listItem1, lastChild1);
+
+    listItem2.appendChild(itemExpression2);
+    listItem2.appendChild(itemResult2);
+    historyList2.insertBefore(listItem2, lastChild2);
+
+
+    listItem1.setAttribute("id", id1);
+    listItem2.setAttribute("id", id2);
+
+    historyItemId++;
+}
+
+function historyItemClick() {
+
+    var id = this.id;
+    // console.log(this.id)
+    var element = document.getElementById(id);
+    console.log(element)
+    expression.textContent = "";
+    result.textContent = "";
+    expression.textContent = element.childNodes[0].textContent.substr(0, element.childNodes[0].textContent.length - 2);
+    result.textContent = element.childNodes[1].textContent;
+    txtExpression = expression.textContent;
+}
+
+function historyTrashFunct() {
+
+    historyList1.innerHTML = "<li>There's no history yet</li>";
+    historyList2.innerHTML = "<li style='margin-top: 12px'>There's no history yet</li>";
+
+    trashIcon3.style.display = "none";
+    trashIcon4.style.display = "none";
+
+    historyItemId = 0;
+
+    document.getElementById('historyIcon').className += " disabled";
 }
