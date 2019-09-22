@@ -16,6 +16,7 @@ var lastOperator = "+";
 var sqrtAcc = 0;
 var sqrAcc = 0;
 var cubeAcc = 0;
+var divideAcc = 0;
 
 var memoryItmId = 0;
 
@@ -56,7 +57,7 @@ function valueBtnHandler(value, type) {
 
     if (txtResult === "") {
         if (txtExpression === "" && type === 'symbol') {
-            if (value !== "√") {
+            if (value !== "√" && value !== "reverse") {
                 return;
             }
         }
@@ -149,7 +150,6 @@ function valueBtnHandler(value, type) {
                 txtResult = txtResult.includes("cube") ? "cube(" + txtResult + ")" : "cube(" + result.textContent + ")";
                 let temp = txtResult;
                 temp = temp.replace(/\)/g, ",3)");
-                console.log(temp)
                 result.textContent = eval(temp.replace(/cube/g, "Math.pow"));
 
                 if (cubeAcc === 1) {
@@ -163,6 +163,38 @@ function valueBtnHandler(value, type) {
 
                 expression.textContent += txtResult + " ";
                 return;
+            }
+
+            if (value === "reverse") {
+                
+                if (result.textContent === "0") {
+                    console.log("HEYYYYYYYYYY")
+                    txtResult = "";
+                    txtExpression = "";
+                    result.textContent = "Cannot divide by zero";
+                    expression.textContent = "";
+                    return;
+                }
+
+                
+
+                divideAcc = (txtResult.match(/\//g) || []).length + 1;
+
+                txtResult = txtResult.includes("/") ? "1/(" + txtResult + ")" : "1/(" + result.textContent + ")";
+                result.textContent = eval(txtResult);
+
+                if (divideAcc === 1) {
+                    expression.textContent += txtResult + " ";
+                    return;
+                }
+
+                if (expression.textContent.includes("/")) {
+                    expression.textContent = expression.textContent.substr(0, expression.textContent.lastIndexOf("/") - (3 * (divideAcc - 2)) - 1);
+                }
+
+                expression.textContent += txtResult + " ";
+                return;
+                
             }
 
             switch (value) {
@@ -210,8 +242,7 @@ function valueBtnHandler(value, type) {
             txtExpression = lastResult + value;
 
             result.textContent = lastResult;
-            txtResult.includes("√") || txtResult.includes("Math.pow") ? expression.textContent += value : expression.textContent += txtResult + " " + value + " ";
-
+            txtResult.includes("√") || txtResult.includes("Math.pow") || txtResult.includes("/") ? expression.textContent += value : expression.textContent += txtResult + " " + value + " ";
 
             txtResult = "";
             break;
