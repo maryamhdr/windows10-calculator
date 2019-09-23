@@ -4,13 +4,9 @@
 <head>
     <title>Calculator</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
-
-    <script src="https://kit.fontawesome.com/fc788d89ec.js"></script>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0"/>
     <link rel="stylesheet" type="text/css" href="app/css/styles.css" />
     <title>Calculator</title>
-
-    <script src="app/js/test.js"></script>
 </head>
 
 <body onresize="resizeWindow()">
@@ -140,7 +136,7 @@
                         <div class="memory-btn" onclick="memorySub()">M-</i>
                             <div class="tooltip">Memory substract</div>
                         </div>
-                        <div class="memory-btn" onclick="storeInMemory()">MS</i>
+                        <div class="memory-btn" id="storeMemoryBtn" onclick="storeInMemory()">MS</i>
                             <div class="tooltip">Memory store (Ctrl+M)</div>
                         </div>
                         <div class="memory-btn disabled" onclick="openMemory(event)" id="mBtn">M<img
@@ -334,6 +330,9 @@
     </div>
 
     <script src="app/js/main.js"></script>
+    <script src="app/js/history.js"></script>
+    <script src="app/js/memory.js"></script>
+    <script src="app/js/calculation.js"></script>
 </body>
 
 </html>
