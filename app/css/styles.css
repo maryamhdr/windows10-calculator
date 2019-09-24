@@ -23,7 +23,7 @@ body {
 }
 
 .custom-font {
-    font-family: lucidaCalligraphy !important;
+    font-family: 'Lucida Calligraphy';
     letter-spacing: 0
 }
 
@@ -186,7 +186,9 @@ body {
     color: var(--dark-hover-color);
     font-size: 14px;
     font-weight: 400;
-    padding: 0 12px;
+    padding: 0 12px;;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 .screen-result {

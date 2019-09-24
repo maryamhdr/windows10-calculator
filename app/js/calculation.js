@@ -1,3 +1,5 @@
+var temp = "";
+
 function valueBtnHandler(value, type) {
 
     if (txtResult === "") {
@@ -16,10 +18,7 @@ function valueBtnHandler(value, type) {
     switch (type) {
         case 'number':
             if (recalled) {
-                txtResult = "";
-                result.textContent = +value;
                 recalled = false;
-                return;
             }
 
             if (value === "." && txtResult.includes(".")) {
@@ -35,7 +34,25 @@ function valueBtnHandler(value, type) {
             lastResult = parseFloat(txtResult);
             break;
         case 'symbol':
+
+            if(txtResult.charAt(txtResult.length - 1) === ".") {
+                txtResult = txtResult.substr(0, txtResult.length - 1);
+            }
+
             if (value === "±") {
+
+                if(recalled) {
+                    let a = expression.textContent.lastIndexOf("+");
+                    let b = expression.textContent.lastIndexOf("-");
+                    let c = expression.textContent.lastIndexOf("×");
+                    let d = expression.textContent.lastIndexOf("÷");
+                    let max = Math.max(a, b, c, d);
+                    let str = expression.textContent.substr(max + 2, expression.textContent.length - 1);
+                    expression.textContent = expression.textContent.substr(0, max + 2);
+                    result.textContent = str;
+                    recalled = false;
+                }
+
                 if (result.textContent.includes("-")) {
                     txtResult = result.textContent.replace("-", "");
                     result.textContent = txtResult;
@@ -47,6 +64,19 @@ function valueBtnHandler(value, type) {
             }
 
             if (value === "√") {
+
+                if(recalled) {
+                    let a = expression.textContent.lastIndexOf("+");
+                    let b = expression.textContent.lastIndexOf("-");
+                    let c = expression.textContent.lastIndexOf("×");
+                    let d = expression.textContent.lastIndexOf("÷");
+                    let max = Math.max(a, b, c, d);
+                    let str = expression.textContent.substr(max + 2, expression.textContent.length - 1);
+                    expression.textContent = expression.textContent.substr(0, max + 2);
+                    result.textContent = str;
+                    recalled = false;
+                }
+                
                 if (result.textContent.includes("-")) {
                     txtResult = "";
                     txtExpression = "";
@@ -57,8 +87,13 @@ function valueBtnHandler(value, type) {
 
                 sqrtAcc = (txtResult.match(/√/g) || []).length + 1;
 
-                txtResult = txtResult.includes("√") ? "√(" + txtResult + ")" : "√(" + result.textContent + ")";
-                result.textContent = eval(txtResult.replace(/√/g, "Math.sqrt"));
+                if(txtResult.indexOf('cube') === 0 || txtResult.indexOf('sqr') === 0 || txtResult.indexOf('1/') === 0 || txtResult.indexOf("√") === 0) {
+                    txtResult = "√(" + txtResult + ")";
+                    expression.textContent = expression.textContent.substr(0, expression.textContent.length - (txtResult.length -2) )
+
+                }else {
+                    txtResult = "√(" + result.textContent + ")";
+                }
 
                 if (sqrtAcc === 1) {
                     expression.textContent += txtResult + " ";
@@ -69,17 +104,45 @@ function valueBtnHandler(value, type) {
                     expression.textContent = expression.textContent.substr(0, expression.textContent.lastIndexOf("√") - 2 * (sqrtAcc - 2));
                 }
 
+                // let temp = txtResult;
+                // temp = temp.replace(/√/g, "Math.sqrt");
+                // // temp = temp.replace(/\)/g, ",2)");
+                // // temp = txtResult.replace(/sqr/g, 'Math.pow');
+                // // txtResult = txtResult.replace(/\)/g, ",3)");
+                // // txtResult = txtResult.replace(/cube/g, 'Math.pow');
+                // result.textContent = eval(temp);
+
                 expression.textContent += txtResult + " ";
+                specSymbol = true;
                 return;
             }
 
             if (value === "sqr") {
+                if(recalled) {
+                    let a = expression.textContent.lastIndexOf("+");
+                    let b = expression.textContent.lastIndexOf("-");
+                    let c = expression.textContent.lastIndexOf("×");
+                    let d = expression.textContent.lastIndexOf("÷");
+                    let max = Math.max(a, b, c, d);
+                    let str = expression.textContent.substr(max + 2, expression.textContent.length - 1);
+                    expression.textContent = expression.textContent.substr(0, max + 2);
+                    result.textContent = str;
+                    recalled = false;
+                }
+
                 sqrAcc = (txtResult.match(/sqr/g) || []).length + 1;
 
-                txtResult = txtResult.includes("sqr") ? "sqr(" + txtResult + ")" : "sqr(" + result.textContent + ")";
-                let temp = txtResult;
-                temp = temp.replace(/\)/g, ",2)");
-                result.textContent = eval(temp.replace(/sqr/g, "Math.pow"));
+                if(txtResult.indexOf('cube') === 0 || txtResult.indexOf('sqr') === 0 || txtResult.indexOf('1/') === 0 || txtResult.indexOf("√") === 0) {
+                    txtResult = "sqr(" + txtResult + ")";
+                    expression.textContent = expression.textContent.substr(0, expression.textContent.length - (txtResult.length -2) )
+
+                }else {
+                    txtResult = "sqr(" + result.textContent + ")";
+                }
+
+                // let temp = txtResult;
+                // temp = temp.replace(/\)/g, ",2)");
+                // result.textContent = eval(temp.replace(/sqr/g, "Math.pow"));
 
                 if (sqrAcc === 1) {
                     expression.textContent += txtResult + " ";
@@ -91,16 +154,36 @@ function valueBtnHandler(value, type) {
                 }
 
                 expression.textContent += txtResult + " ";
+                specSymbol = true;
                 return;
             }
 
             if (value === "cube") {
+                if(recalled) {
+                    let a = expression.textContent.lastIndexOf("+");
+                    let b = expression.textContent.lastIndexOf("-");
+                    let c = expression.textContent.lastIndexOf("×");
+                    let d = expression.textContent.lastIndexOf("÷");
+                    let max = Math.max(a, b, c, d);
+                    let str = expression.textContent.substr(max + 2, expression.textContent.length - 1);
+                    expression.textContent = expression.textContent.substr(0, max + 2);
+                    result.textContent = str;
+                    recalled = false;
+                }
+
                 cubeAcc = (txtResult.match(/cube/g) || []).length + 1;
 
-                txtResult = txtResult.includes("cube") ? "cube(" + txtResult + ")" : "cube(" + result.textContent + ")";
-                let temp = txtResult;
-                temp = temp.replace(/\)/g, ",3)");
-                result.textContent = eval(temp.replace(/cube/g, "Math.pow"));
+                if(txtResult.indexOf('cube') === 0 || txtResult.indexOf('sqr') === 0 || txtResult.indexOf('1/') === 0 || txtResult.indexOf("√") === 0) {
+                    txtResult = "cube(" + txtResult + ")";
+                    expression.textContent = expression.textContent.substr(0, expression.textContent.length - (txtResult.length -2) )
+
+                }else {
+                    txtResult = "cube(" + result.textContent + ")";
+                }
+
+                // let temp = txtResult;
+                // temp = temp.replace(/\)/g, ",3)");
+                // result.textContent = eval(temp.replace(/cube/g, "Math.pow"));
 
                 if (cubeAcc === 1) {
                     expression.textContent += txtResult + " ";
@@ -112,10 +195,22 @@ function valueBtnHandler(value, type) {
                 }
 
                 expression.textContent += txtResult + " ";
+                specSymbol = true;
                 return;
             }
 
             if (value === "reverse") {
+                if(recalled) {
+                    let a = expression.textContent.lastIndexOf("+");
+                    let b = expression.textContent.lastIndexOf("-");
+                    let c = expression.textContent.lastIndexOf("×");
+                    let d = expression.textContent.lastIndexOf("÷");
+                    let max = Math.max(a, b, c, d);
+                    let str = expression.textContent.substr(max + 2, expression.textContent.length - 1);
+                    expression.textContent = expression.textContent.substr(0, max + 2);
+                    result.textContent = str;
+                    recalled = false;
+                }
 
                 if (result.textContent === "0") {
                     txtResult = "";
@@ -127,8 +222,15 @@ function valueBtnHandler(value, type) {
 
                 divideAcc = (txtResult.match(/\//g) || []).length + 1;
 
-                txtResult = txtResult.includes("/") ? "1/(" + txtResult + ")" : "1/(" + result.textContent + ")";
-                result.textContent = eval(txtResult);
+                if(txtResult.indexOf('cube') === 0 || txtResult.indexOf('sqr') === 0 || txtResult.indexOf('1/') === 0 || txtResult.indexOf("√") === 0) {
+                    txtResult = "1/(" + txtResult + ")";
+                    expression.textContent = expression.textContent.substr(0, expression.textContent.length - (txtResult.length -2) )
+
+                }else {
+                    txtResult = "1/(" + result.textContent + ")";
+                }
+
+                // result.textContent = eval(txtResult);
 
                 if (divideAcc === 1) {
                     expression.textContent += txtResult + " ";
@@ -140,6 +242,7 @@ function valueBtnHandler(value, type) {
 
 
                 expression.textContent += txtResult + " ";
+                specSymbol = true;
                 return;
 
             }
@@ -157,8 +260,15 @@ function valueBtnHandler(value, type) {
                     break;
             }
 
-            txtResult = txtResult.includes('sqr') ? txtResult.replace(/\)/g, ",2)") : txtResult.replace(/sqr/g, 'Math.pow');
-            txtResult = txtResult.includes('cube') ? txtResult.replace(/\)/g, ",3)") : txtResult.replace(/cube/g, 'Math.pow');
+            if(txtResult.includes('sqr')) {
+                txtResult = txtResult.replace(/\)/g, ",2)");
+                txtResult = txtResult.replace(/sqr/g, 'Math.pow');
+            }
+            
+            if(txtResult.includes('cube')) {
+                txtResult = txtResult.replace(/\)/g, ",3)");
+                txtResult = txtResult.replace(/cube/g, 'Math.pow');
+            }
 
             txtExpression += txtResult;
 
@@ -178,6 +288,7 @@ function valueBtnHandler(value, type) {
             txtExpression = txtExpression.replace("×", "*");
             txtExpression = txtExpression.replace(/√/g, "Math.sqrt");
 
+            console.log(txtExpression)
             lastResult = eval(txtExpression);
 
             txtExpression = lastResult + value;
@@ -254,8 +365,15 @@ function calculateResult() {
         return;
     }
 
-    txtExpression = txtExpression.includes('sqr') ? txtExpression.replace(/\)/g, ",2)") : txtExpression.replace(/sqr/g, 'Math.pow');
-    txtExpression = txtExpression.includes('cube') ? txtExpression.replace(/\)/g, ",3)") : txtExpression.replace(/cube/g, 'Math.pow');
+    if(txtExpression.includes('sqr')) {
+        txtExpression = txtExpression.replace(/\)/g, ",2)");
+        txtExpression = txtExpression.replace(/sqr/g, 'Math.pow');
+    }
+
+    if(txtExpression.includes('cube')) {
+        txtExpression = txtExpression.replace(/\)/g, ",3)");
+        txtExpression = txtExpression.replace(/cube/g, 'Math.pow');
+    }
 
     txtExpression = txtExpression.replace("÷", "/");
     txtExpression = txtExpression.replace("×", "*");

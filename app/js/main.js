@@ -25,6 +25,9 @@ var mBtn = getElement('mBtn');
 var memoryScreen = getElement('memoryScreen');
 var historyScreen = getElement('historyScreen');
 
+var historyIconImg = getElement('historyIconImg');
+var sortDownImg = getElement('sortDownImg');
+
 
 var txtResult = "";
 var txtExpression = "";
@@ -35,6 +38,7 @@ var sqrAcc = 0;
 var cubeAcc = 0;
 var divideAcc = 0;
 var recalled = false;
+var specSymbol = false;
 
 var memoryItmId = 0;
 var historyItemId = 0;

@@ -8,6 +8,7 @@ function storeInMemory() {
         mcBtn.className = mcBtn.className.replace(" disabled", "");
         mrBtn.className = mrBtn.className.replace(" disabled", "");
         mBtn.className = mBtn.className.replace(" disabled", "");
+        sortDownImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAQAAABIkb+zAAAAAmJLR0QA/4ePzL8AAADuSURBVHja7dhNDgFREEXh2kBjR2Yk5qwBwdTQ/liOjvQMnRhI0Prn3XrvJeerDZw7LTMAAAAAAAAAAAAATVZ2scruoqvsbEtl/k6W/n5bVf7ESpcBVxtpBixc8uub5T5grhkwtptLfmmFZoDZxmXAWpVfO8rzT8p8/QR5vnaCS75uglu+ZoJrfvgJ7vlhJ0TJDzchWn6YCVHzh0+Inj9sQhL5/Sckk99vQlL53Sckl99tQpL57Sckm99uQtL5/yckn988IYv83xOyyf8+Iav8zwnZ5dcOr1dkafvYKX0VNn2e7E0FAAAAAAAAAMjUA8pY0AAlkHWaAAAAAElFTkSuQmCC";
     }
 
     var id1 = "item1_" + memoryItmId;
@@ -113,6 +114,7 @@ function deleteMemoryItem() {
         mcBtn.className += " disabled";
         mrBtn.className += " disabled";
         mBtn.className += " disabled";
+        sortDownImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAB9UlEQVR4nO3avYoTYRhH8TPKaKGCvddgYyUWVkLuwJtQUmQiSbmWUZwUgjfhHUy/VmLhNdiLH4tKkhkbsV7XPO/Hcn5liucN/wOpApIkSZIkSZIkSZIkSZIkSZIkSZKkWjWRx/u+fzxN0zPgLnA98q0Av4CPwMuu695GPRIWoO/7p9M0vY66n1LTNE8Wi8WbkNsRR7fb7e1xHD8BNyLuZ/C9bds78/n867EPXzn2QYBxHB9wecYHuLnf7+9HHA4JcBmN4xjyaxESYLfbnQI/Im5ncnY4HN5FHA4JsF6vvwBdxO0cmqZZrlarbxG3r0YcBRiG4f1sNvsJPIp6I5GTruteRR0PCwAwDMNp5RFOuq57HvlAaACoOkL4+JAgAFQZIcn4kCgAVBUh2fiQMABUESHp+JA4ABQdIfn4kCEAFBkhy/iQKQAUFSHb+JAxABQRIev4kDkAZI2QfXwoIABkiVDE+FBIAEgaoZjxoaAAkCRCUeNDYQEgNEJx40OBASAkQpHjQ6EB4KgRih0fCg4AR4lQ9PhQeAD4rwjFjw8VBIALRahifKgkAPxThGrGh4oCwLkiVDU+VBYA/kb4DDwErv35+GyapuVyuXyR8atdSOi/oyNtNptbbdveA9jtdh+i/rcjSZIkSZIkSZIkSZIkSZIkqRK/Aatx6SzdM82mAAAAAElFTkSuQmCC";
     }
 
     if (!memoryList2.hasChildNodes()) {
@@ -123,6 +125,7 @@ function deleteMemoryItem() {
         mcBtn.className += " disabled";
         mrBtn.className += " disabled";
         mBtn.className += " disabled";
+        sortDownImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAB9UlEQVR4nO3avYoTYRhH8TPKaKGCvddgYyUWVkLuwJtQUmQiSbmWUZwUgjfhHUy/VmLhNdiLH4tKkhkbsV7XPO/Hcn5liucN/wOpApIkSZIkSZIkSZIkSZIkSZIkSZKkWjWRx/u+fzxN0zPgLnA98q0Av4CPwMuu695GPRIWoO/7p9M0vY66n1LTNE8Wi8WbkNsRR7fb7e1xHD8BNyLuZ/C9bds78/n867EPXzn2QYBxHB9wecYHuLnf7+9HHA4JcBmN4xjyaxESYLfbnQI/Im5ncnY4HN5FHA4JsF6vvwBdxO0cmqZZrlarbxG3r0YcBRiG4f1sNvsJPIp6I5GTruteRR0PCwAwDMNp5RFOuq57HvlAaACoOkL4+JAgAFQZIcn4kCgAVBUh2fiQMABUESHp+JA4ABQdIfn4kCEAFBkhy/iQKQAUFSHb+JAxABQRIev4kDkAZI2QfXwoIABkiVDE+FBIAEgaoZjxoaAAkCRCUeNDYQEgNEJx40OBASAkQpHjQ6EB4KgRih0fCg4AR4lQ9PhQeAD4rwjFjw8VBIALRahifKgkAPxThGrGh4oCwLkiVDU+VBYA/kb4DDwErv35+GyapuVyuXyR8atdSOi/oyNtNptbbdveA9jtdh+i/rcjSZIkSZIkSZIkSZIkSZIkqRK/Aatx6SzdM82mAAAAAElFTkSuQmCC";
     }
 }
 
@@ -177,6 +180,8 @@ function memoryTrashFunct() {
     mcBtn.className += " disabled";
     mrBtn.className += " disabled";
     mBtn.className += " disabled";
+
+    sortDownImg.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABmJLR0QA/wD/AP+gvaeTAAAB9UlEQVR4nO3avYoTYRhH8TPKaKGCvddgYyUWVkLuwJtQUmQiSbmWUZwUgjfhHUy/VmLhNdiLH4tKkhkbsV7XPO/Hcn5liucN/wOpApIkSZIkSZIkSZIkSZIkSZIkSZKkWjWRx/u+fzxN0zPgLnA98q0Av4CPwMuu695GPRIWoO/7p9M0vY66n1LTNE8Wi8WbkNsRR7fb7e1xHD8BNyLuZ/C9bds78/n867EPXzn2QYBxHB9wecYHuLnf7+9HHA4JcBmN4xjyaxESYLfbnQI/Im5ncnY4HN5FHA4JsF6vvwBdxO0cmqZZrlarbxG3r0YcBRiG4f1sNvsJPIp6I5GTruteRR0PCwAwDMNp5RFOuq57HvlAaACoOkL4+JAgAFQZIcn4kCgAVBUh2fiQMABUESHp+JA4ABQdIfn4kCEAFBkhy/iQKQAUFSHb+JAxABQRIev4kDkAZI2QfXwoIABkiVDE+FBIAEgaoZjxoaAAkCRCUeNDYQEgNEJx40OBASAkQpHjQ6EB4KgRih0fCg4AR4lQ9PhQeAD4rwjFjw8VBIALRahifKgkAPxThGrGh4oCwLkiVDU+VBYA/kb4DDwErv35+GyapuVyuXyR8atdSOi/oyNtNptbbdveA9jtdh+i/rcjSZIkSZIkSZIkSZIkSZIkqRK/Aatx6SzdM82mAAAAAElFTkSuQmCC";
 }
 
 function memoryRecall() {
