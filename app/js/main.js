@@ -31,6 +31,7 @@ var sortDownImg = getElement('sortDownImg');
 
 var txtResult = "";
 var txtExpression = "";
+var temp = "";
 var lastResult = 0;
 var lastOperator = "+";
 var sqrtAcc = 0;
